@@ -2142,6 +2142,42 @@ WizardStepDirective.ctorParameters = () => [];
  * @suppress {checkTypes} checked by tsc
  */
 /**
+ * The `awWizardStepSymbol` directive can be used as an alternative to the `navigationSymbol` input of a [[WizardStep]]
+ * to define the step symbol inside the navigation bar.  This way step symbol may contain arbitrary content.
+ *
+ * ### Syntax
+ *
+ * ```html
+ * <ng-template awWizardStepSymbol>
+ *     ...
+ * </ng-template>
+ * ```
+ */
+class WizardStepSymbolDirective {
+    /**
+     * Constructor
+     *
+     * @param {?} templateRef A reference to the content of the `ng-template` that contains this [[WizardStepSymbolDirective]]
+     */
+    constructor(templateRef) {
+        this.templateRef = templateRef;
+    }
+}
+WizardStepSymbolDirective.decorators = [
+    { type: Directive, args: [{
+                selector: 'ng-template[awStepSymbol], ng-template[awWizardStepSymbol]'
+            },] },
+];
+/** @nocollapse */
+WizardStepSymbolDirective.ctorParameters = () => [
+    { type: TemplateRef, },
+];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
  * The module defining all the content inside `angular-archwizard`
  *
  * @author Marc Arndt
@@ -2170,7 +2206,8 @@ ArchwizardModule.decorators = [
                     WizardStepDirective,
                     WizardCompletionStepDirective,
                     SelectedStepDirective,
-                    ResetWizardDirective
+                    ResetWizardDirective,
+                    WizardStepSymbolDirective
                 ],
                 imports: [
                     CommonModule
@@ -2189,7 +2226,8 @@ ArchwizardModule.decorators = [
                     WizardStepDirective,
                     WizardCompletionStepDirective,
                     SelectedStepDirective,
-                    ResetWizardDirective
+                    ResetWizardDirective,
+                    WizardStepSymbolDirective
                 ]
             },] },
 ];
@@ -2209,5 +2247,5 @@ ArchwizardModule.ctorParameters = () => [];
  * Generated bundle index. Do not edit.
  */
 
-export { ArchwizardModule, WizardComponent, WizardCompletionStepComponent, WizardNavigationBarComponent, WizardStepComponent, EnableBackLinksDirective, GoToStepDirective, NextStepDirective, OptionalStepDirective, PreviousStepDirective, ResetWizardDirective, SelectedStepDirective, WizardCompletionStepDirective, WizardStepDirective, WizardStepTitleDirective, FreeNavigationMode, NavigationMode, SemiStrictNavigationMode, StrictNavigationMode, WizardState, navigationModeFactory, MovingDirection, WizardCompletionStep, WizardStep, isStepId, isStepIndex, isStepOffset, WizardCompletionStepComponent as ɵg, WizardNavigationBarComponent as ɵf, WizardStepComponent as ɵe, WizardComponent as ɵa, EnableBackLinksDirective as ɵm, GoToStepDirective as ɵi, NextStepDirective as ɵj, OptionalStepDirective as ɵl, PreviousStepDirective as ɵk, ResetWizardDirective as ɵq, SelectedStepDirective as ɵp, WizardCompletionStepDirective as ɵo, WizardStepTitleDirective as ɵd, WizardStepDirective as ɵn, WizardState as ɵb, WizardCompletionStep as ɵh, WizardStep as ɵc };
+export { ArchwizardModule, WizardComponent, WizardCompletionStepComponent, WizardNavigationBarComponent, WizardStepComponent, EnableBackLinksDirective, GoToStepDirective, NextStepDirective, OptionalStepDirective, PreviousStepDirective, ResetWizardDirective, SelectedStepDirective, WizardCompletionStepDirective, WizardStepDirective, WizardStepTitleDirective, FreeNavigationMode, NavigationMode, SemiStrictNavigationMode, StrictNavigationMode, WizardState, navigationModeFactory, MovingDirection, WizardCompletionStep, WizardStep, isStepId, isStepIndex, isStepOffset, WizardCompletionStepComponent as ɵg, WizardNavigationBarComponent as ɵf, WizardStepComponent as ɵe, WizardComponent as ɵa, EnableBackLinksDirective as ɵm, GoToStepDirective as ɵi, NextStepDirective as ɵj, OptionalStepDirective as ɵl, PreviousStepDirective as ɵk, ResetWizardDirective as ɵq, SelectedStepDirective as ɵp, WizardCompletionStepDirective as ɵo, WizardStepSymbolDirective as ɵr, WizardStepTitleDirective as ɵd, WizardStepDirective as ɵn, WizardState as ɵb, WizardCompletionStep as ɵh, WizardStep as ɵc };
 //# sourceMappingURL=angular-archwizard.js.map

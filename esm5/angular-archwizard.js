@@ -926,6 +926,20 @@ WizardStepDirective.decorators = [
             },] },
 ];
 WizardStepDirective.ctorParameters = function () { return []; };
+var WizardStepSymbolDirective = /** @class */ (function () {
+    function WizardStepSymbolDirective(templateRef) {
+        this.templateRef = templateRef;
+    }
+    return WizardStepSymbolDirective;
+}());
+WizardStepSymbolDirective.decorators = [
+    { type: Directive, args: [{
+                selector: 'ng-template[awStepSymbol], ng-template[awWizardStepSymbol]'
+            },] },
+];
+WizardStepSymbolDirective.ctorParameters = function () { return [
+    { type: TemplateRef, },
+]; };
 var ArchwizardModule = /** @class */ (function () {
     function ArchwizardModule() {
     }
@@ -950,7 +964,8 @@ ArchwizardModule.decorators = [
                     WizardStepDirective,
                     WizardCompletionStepDirective,
                     SelectedStepDirective,
-                    ResetWizardDirective
+                    ResetWizardDirective,
+                    WizardStepSymbolDirective
                 ],
                 imports: [
                     CommonModule
@@ -969,11 +984,12 @@ ArchwizardModule.decorators = [
                     WizardStepDirective,
                     WizardCompletionStepDirective,
                     SelectedStepDirective,
-                    ResetWizardDirective
+                    ResetWizardDirective,
+                    WizardStepSymbolDirective
                 ]
             },] },
 ];
 ArchwizardModule.ctorParameters = function () { return []; };
 
-export { ArchwizardModule, WizardComponent, WizardCompletionStepComponent, WizardNavigationBarComponent, WizardStepComponent, EnableBackLinksDirective, GoToStepDirective, NextStepDirective, OptionalStepDirective, PreviousStepDirective, ResetWizardDirective, SelectedStepDirective, WizardCompletionStepDirective, WizardStepDirective, WizardStepTitleDirective, FreeNavigationMode, NavigationMode, SemiStrictNavigationMode, StrictNavigationMode, WizardState, navigationModeFactory, MovingDirection, WizardCompletionStep, WizardStep, isStepId, isStepIndex, isStepOffset, WizardCompletionStepComponent as ɵg, WizardNavigationBarComponent as ɵf, WizardStepComponent as ɵe, WizardComponent as ɵa, EnableBackLinksDirective as ɵm, GoToStepDirective as ɵi, NextStepDirective as ɵj, OptionalStepDirective as ɵl, PreviousStepDirective as ɵk, ResetWizardDirective as ɵq, SelectedStepDirective as ɵp, WizardCompletionStepDirective as ɵo, WizardStepTitleDirective as ɵd, WizardStepDirective as ɵn, WizardState as ɵb, WizardCompletionStep as ɵh, WizardStep as ɵc };
+export { ArchwizardModule, WizardComponent, WizardCompletionStepComponent, WizardNavigationBarComponent, WizardStepComponent, EnableBackLinksDirective, GoToStepDirective, NextStepDirective, OptionalStepDirective, PreviousStepDirective, ResetWizardDirective, SelectedStepDirective, WizardCompletionStepDirective, WizardStepDirective, WizardStepTitleDirective, FreeNavigationMode, NavigationMode, SemiStrictNavigationMode, StrictNavigationMode, WizardState, navigationModeFactory, MovingDirection, WizardCompletionStep, WizardStep, isStepId, isStepIndex, isStepOffset, WizardCompletionStepComponent as ɵg, WizardNavigationBarComponent as ɵf, WizardStepComponent as ɵe, WizardComponent as ɵa, EnableBackLinksDirective as ɵm, GoToStepDirective as ɵi, NextStepDirective as ɵj, OptionalStepDirective as ɵl, PreviousStepDirective as ɵk, ResetWizardDirective as ɵq, SelectedStepDirective as ɵp, WizardCompletionStepDirective as ɵo, WizardStepSymbolDirective as ɵr, WizardStepTitleDirective as ɵd, WizardStepDirective as ɵn, WizardState as ɵb, WizardCompletionStep as ɵh, WizardStep as ɵc };
 //# sourceMappingURL=angular-archwizard.js.map

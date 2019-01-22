@@ -990,6 +990,20 @@ WizardStepDirective.decorators = [
             },] },
 ];
 WizardStepDirective.ctorParameters = function () { return []; };
+var WizardStepSymbolDirective = /** @class */ (function () {
+    function WizardStepSymbolDirective(templateRef) {
+        this.templateRef = templateRef;
+    }
+    return WizardStepSymbolDirective;
+}());
+WizardStepSymbolDirective.decorators = [
+    { type: core.Directive, args: [{
+                selector: 'ng-template[awStepSymbol], ng-template[awWizardStepSymbol]'
+            },] },
+];
+WizardStepSymbolDirective.ctorParameters = function () { return [
+    { type: core.TemplateRef, },
+]; };
 var ArchwizardModule = /** @class */ (function () {
     function ArchwizardModule() {
     }
@@ -1014,7 +1028,8 @@ ArchwizardModule.decorators = [
                     WizardStepDirective,
                     WizardCompletionStepDirective,
                     SelectedStepDirective,
-                    ResetWizardDirective
+                    ResetWizardDirective,
+                    WizardStepSymbolDirective
                 ],
                 imports: [
                     common.CommonModule
@@ -1033,7 +1048,8 @@ ArchwizardModule.decorators = [
                     WizardStepDirective,
                     WizardCompletionStepDirective,
                     SelectedStepDirective,
-                    ResetWizardDirective
+                    ResetWizardDirective,
+                    WizardStepSymbolDirective
                 ]
             },] },
 ];
@@ -1078,6 +1094,7 @@ exports.ɵk = PreviousStepDirective;
 exports.ɵq = ResetWizardDirective;
 exports.ɵp = SelectedStepDirective;
 exports.ɵo = WizardCompletionStepDirective;
+exports.ɵr = WizardStepSymbolDirective;
 exports.ɵd = WizardStepTitleDirective;
 exports.ɵn = WizardStepDirective;
 exports.ɵb = WizardState;

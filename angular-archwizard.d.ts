@@ -14,6 +14,7 @@ export { PreviousStepDirective as ɵk } from './directives/previous-step.directi
 export { ResetWizardDirective as ɵq } from './directives/reset-wizard.directive';
 export { SelectedStepDirective as ɵp } from './directives/selected-step.directive';
 export { WizardCompletionStepDirective as ɵo } from './directives/wizard-completion-step.directive';
+export { WizardStepSymbolDirective as ɵr } from './directives/wizard-step-symbol.directive';
 export { WizardStepTitleDirective as ɵd } from './directives/wizard-step-title.directive';
 export { WizardStepDirective as ɵn } from './directives/wizard-step.directive';
 export { WizardState as ɵb } from './navigation/wizard-state.model';
