@@ -16,10 +16,13 @@ import { WizardStep } from '../util/wizard-step.interface';
  * With `awWizardStepTitle` and `awWizardStepSymbol` directives:
  *
  * ```html
- * <aw-wizard-step [navigationSymbol]="{ symbol: 'symbol', fontFamily: 'font-family' }"
+ * <aw-wizard-step"
  *    [canExit]="deciding function" (stepEnter)="enter function" (stepExit)="exit function">
  *    <ng-template awWizardStepTitle>
  *        step title
+ *    </ng-template>
+ *    <ng-template awWizardStepSymbol>
+ *        symbol
  *    </ng-template>
  *    ...
  * </aw-wizard-step>
@@ -27,7 +30,7 @@ import { WizardStep } from '../util/wizard-step.interface';
  *
  * ### Example
  *
- * With `stepTitle` input:
+ * With `stepTitle` and `navigationSymbol` inputs:
  *
  * ```html
  * <aw-wizard-step stepTitle="Address information" [navigationSymbol]="{ symbol: '&#xf1ba;', fontFamily: 'FontAwesome' }">
@@ -35,12 +38,15 @@ import { WizardStep } from '../util/wizard-step.interface';
  * </aw-wizard-step>
  * ```
  *
- * With `awWizardStepTitle` directive:
+ * With `awWizardStepTitle` and `awWizardStepSymbol` directives:
  *
  * ```html
- * <aw-wizard-step [navigationSymbol]="{ symbol: '&#xf1ba;', fontFamily: 'FontAwesome' }">
+ * <aw-wizard-step>
  *    <ng-template awWizardStepTitle>
  *        Address information
+ *    </ng-template>
+ *    <ng-template awWizardStepSymbol>
+ *        <i class="fa fa-taxi"></i>
  *    </ng-template>
  * </aw-wizard-step>
  * ```
