@@ -1,8 +1,9 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('util'), require('@angular/common')) :
-    typeof define === 'function' && define.amd ? define('angular-archwizard', ['exports', '@angular/core', 'util', '@angular/common'], factory) :
-    (factory((global['angular-archwizard'] = {}),global.ng.core,global.util,global.ng.common));
-}(this, (function (exports,core,util,common) { 'use strict';
+        typeof define === 'function' && define.amd ? define('angular-archwizard', ['exports', '@angular/core', 'util', '@angular/common'], factory) :
+            (factory((global['angular-archwizard'] = {}), global.ng.core, global.util, global.ng.common));
+}(this, (function (exports, core, util, common) {
+    'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -22,9 +23,11 @@
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b)
-                if (b.hasOwnProperty(p))
-                    d[p] = b[p]; };
+            function (d, b) {
+                for (var p in b)
+                    if (b.hasOwnProperty(p))
+                        d[p] = b[p];
+            };
         return extendStatics(d, b);
     };
     function __extends(d, b) {
@@ -74,9 +77,11 @@
             this.templateRef = templateRef;
         }
         WizardStepTitleDirective.decorators = [
-            { type: core.Directive, args: [{
-                        selector: 'ng-template[awStepTitle], ng-template[awWizardStepTitle]'
-                    },] }
+            {
+                type: core.Directive, args: [{
+                    selector: 'ng-template[awStepTitle], ng-template[awWizardStepTitle]'
+                },]
+            }
         ];
         WizardStepTitleDirective.ctorParameters = function () {
             return [
@@ -112,9 +117,11 @@
             this.templateRef = templateRef;
         }
         WizardStepSymbolDirective.decorators = [
-            { type: core.Directive, args: [{
-                        selector: 'ng-template[awStepSymbol], ng-template[awWizardStepSymbol]'
-                    },] }
+            {
+                type: core.Directive, args: [{
+                    selector: 'ng-template[awStepSymbol], ng-template[awWizardStepSymbol]'
+                },]
+            }
         ];
         WizardStepSymbolDirective.ctorParameters = function () {
             return [
@@ -191,8 +198,8 @@
              * If the step should be visible to the user false is returned, otherwise true
              * @return {?}
              */ function () {
-                return !this.selected;
-            },
+                    return !this.selected;
+                },
             enumerable: true,
             configurable: true
         });
@@ -395,51 +402,51 @@
      * @author Marc Arndt
      * @abstract
      */ NavigationMode = /** @class */ (function () {
-        function NavigationMode(wizardState) {
-            this.wizardState = wizardState;
-        }
-        /**
+            function NavigationMode(wizardState) {
+                this.wizardState = wizardState;
+            }
+            /**
+             * Tries to transition the wizard to the previous step from the `currentStep`
+             */
+            /**
+             * Tries to transition the wizard to the previous step from the `currentStep`
+             * @param {?=} preFinalize
+             * @param {?=} postFinalize
+             * @return {?}
+             */
+            NavigationMode.prototype.goToPreviousStep = /**
          * Tries to transition the wizard to the previous step from the `currentStep`
-         */
-        /**
-         * Tries to transition the wizard to the previous step from the `currentStep`
          * @param {?=} preFinalize
          * @param {?=} postFinalize
          * @return {?}
          */
-        NavigationMode.prototype.goToPreviousStep = /**
-         * Tries to transition the wizard to the previous step from the `currentStep`
-         * @param {?=} preFinalize
-         * @param {?=} postFinalize
-         * @return {?}
-         */
-            function (preFinalize, postFinalize) {
-                if (this.wizardState.hasPreviousStep()) {
-                    this.goToStep(this.wizardState.currentStepIndex - 1, preFinalize, postFinalize);
-                }
-            };
-        /**
-         * Tries to transition the wizard to the next step from the `currentStep`
-         */
-        /**
+                function (preFinalize, postFinalize) {
+                    if (this.wizardState.hasPreviousStep()) {
+                        this.goToStep(this.wizardState.currentStepIndex - 1, preFinalize, postFinalize);
+                    }
+                };
+            /**
+             * Tries to transition the wizard to the next step from the `currentStep`
+             */
+            /**
+             * Tries to transition the wizard to the next step from the `currentStep`
+             * @param {?=} preFinalize
+             * @param {?=} postFinalize
+             * @return {?}
+             */
+            NavigationMode.prototype.goToNextStep = /**
          * Tries to transition the wizard to the next step from the `currentStep`
          * @param {?=} preFinalize
          * @param {?=} postFinalize
          * @return {?}
          */
-        NavigationMode.prototype.goToNextStep = /**
-         * Tries to transition the wizard to the next step from the `currentStep`
-         * @param {?=} preFinalize
-         * @param {?=} postFinalize
-         * @return {?}
-         */
-            function (preFinalize, postFinalize) {
-                if (this.wizardState.hasNextStep()) {
-                    this.goToStep(this.wizardState.currentStepIndex + 1, preFinalize, postFinalize);
-                }
-            };
-        return NavigationMode;
-    }());
+                function (preFinalize, postFinalize) {
+                    if (this.wizardState.hasNextStep()) {
+                        this.goToStep(this.wizardState.currentStepIndex + 1, preFinalize, postFinalize);
+                    }
+                };
+            return NavigationMode;
+        }());
 
     /**
      * @fileoverview added by tsickle
@@ -457,25 +464,34 @@
      *
      * @author Marc Arndt
      */ FreeNavigationMode = /** @class */ (function (_super) {
-        __extends(FreeNavigationMode, _super);
-        /**
-         * Constructor
-         *
-         * @param wizardState The model/state of the wizard, that is configured with this navigation mode
-         */
-        function FreeNavigationMode(wizardState) {
-            return _super.call(this, wizardState) || this;
-        }
-        /**
-         * Checks whether the wizard can be transitioned to the given destination step.
-         * A destination wizard step can be entered if:
-         * - it exists
-         * - the current step can be exited in the direction of the destination step
-         *
-         * @param destinationIndex The index of the destination wizard step
-         * @returns True if the destination wizard step can be entered, false otherwise
-         */
-        /**
+            __extends(FreeNavigationMode, _super);
+            /**
+             * Constructor
+             *
+             * @param wizardState The model/state of the wizard, that is configured with this navigation mode
+             */
+            function FreeNavigationMode(wizardState) {
+                return _super.call(this, wizardState) || this;
+            }
+            /**
+             * Checks whether the wizard can be transitioned to the given destination step.
+             * A destination wizard step can be entered if:
+             * - it exists
+             * - the current step can be exited in the direction of the destination step
+             *
+             * @param destinationIndex The index of the destination wizard step
+             * @returns True if the destination wizard step can be entered, false otherwise
+             */
+            /**
+             * Checks whether the wizard can be transitioned to the given destination step.
+             * A destination wizard step can be entered if:
+             * - it exists
+             * - the current step can be exited in the direction of the destination step
+             *
+             * @param {?} destinationIndex The index of the destination wizard step
+             * @return {?} True if the destination wizard step can be entered, false otherwise
+             */
+            FreeNavigationMode.prototype.canGoToStep = /**
          * Checks whether the wizard can be transitioned to the given destination step.
          * A destination wizard step can be entered if:
          * - it exists
@@ -484,50 +500,58 @@
          * @param {?} destinationIndex The index of the destination wizard step
          * @return {?} True if the destination wizard step can be entered, false otherwise
          */
-        FreeNavigationMode.prototype.canGoToStep = /**
-         * Checks whether the wizard can be transitioned to the given destination step.
-         * A destination wizard step can be entered if:
-         * - it exists
-         * - the current step can be exited in the direction of the destination step
-         *
-         * @param {?} destinationIndex The index of the destination wizard step
-         * @return {?} True if the destination wizard step can be entered, false otherwise
-         */
-            function (destinationIndex) {
-                var _this = this;
-                /** @type {?} */
-                var hasStep = this.wizardState.hasStep(destinationIndex);
-                /** @type {?} */
-                var movingDirection = this.wizardState.getMovingDirection(destinationIndex);
-                /** @type {?} */
-                var canExitCurrentStep = function (previous) {
-                    return previous ? _this.wizardState.currentStep.canExitStep(movingDirection) : Promise.resolve(false);
+                function (destinationIndex) {
+                    var _this = this;
+                    /** @type {?} */
+                    var hasStep = this.wizardState.hasStep(destinationIndex);
+                    /** @type {?} */
+                    var movingDirection = this.wizardState.getMovingDirection(destinationIndex);
+                    /** @type {?} */
+                    var canExitCurrentStep = function (previous) {
+                        return previous ? _this.wizardState.currentStep.canExitStep(movingDirection) : Promise.resolve(false);
+                    };
+                    /** @type {?} */
+                    var canEnterDestinationStep = function (previous) {
+                        return previous ? _this.wizardState.getStepAtIndex(destinationIndex).canEnterStep(movingDirection) : Promise.resolve(false);
+                    };
+                    return Promise.resolve(hasStep)
+                        .then(canExitCurrentStep)
+                        .then(canEnterDestinationStep);
                 };
-                /** @type {?} */
-                var canEnterDestinationStep = function (previous) {
-                    return previous ? _this.wizardState.getStepAtIndex(destinationIndex).canEnterStep(movingDirection) : Promise.resolve(false);
-                };
-                return Promise.resolve(hasStep)
-                    .then(canExitCurrentStep)
-                    .then(canEnterDestinationStep);
-            };
-        /**
-         * Tries to enter the wizard step with the given destination index.
-         * When entering the destination step, the following actions are done:
-         * - the old current step is set as completed
-         * - the old current step is set as unselected
-         * - the old current step is exited
-         * - the destination step is set as selected
-         * - the destination step is entered
-         *
-         * When the destination step couldn't be entered, the following actions are done:
-         * - the current step is exited and entered in the direction `MovingDirection.Stay`
-         *
-         * @param destinationIndex The index of the destination wizard step, which should be entered
-         * @param preFinalize An event emitter, to be called before the step has been transitioned
-         * @param postFinalize An event emitter, to be called after the step has been transitioned
-         */
-        /**
+            /**
+             * Tries to enter the wizard step with the given destination index.
+             * When entering the destination step, the following actions are done:
+             * - the old current step is set as completed
+             * - the old current step is set as unselected
+             * - the old current step is exited
+             * - the destination step is set as selected
+             * - the destination step is entered
+             *
+             * When the destination step couldn't be entered, the following actions are done:
+             * - the current step is exited and entered in the direction `MovingDirection.Stay`
+             *
+             * @param destinationIndex The index of the destination wizard step, which should be entered
+             * @param preFinalize An event emitter, to be called before the step has been transitioned
+             * @param postFinalize An event emitter, to be called after the step has been transitioned
+             */
+            /**
+             * Tries to enter the wizard step with the given destination index.
+             * When entering the destination step, the following actions are done:
+             * - the old current step is set as completed
+             * - the old current step is set as unselected
+             * - the old current step is exited
+             * - the destination step is set as selected
+             * - the destination step is entered
+             *
+             * When the destination step couldn't be entered, the following actions are done:
+             * - the current step is exited and entered in the direction `MovingDirection.Stay`
+             *
+             * @param {?} destinationIndex The index of the destination wizard step, which should be entered
+             * @param {?=} preFinalize An event emitter, to be called before the step has been transitioned
+             * @param {?=} postFinalize An event emitter, to be called after the step has been transitioned
+             * @return {?}
+             */
+            FreeNavigationMode.prototype.goToStep = /**
          * Tries to enter the wizard step with the given destination index.
          * When entering the destination step, the following actions are done:
          * - the old current step is set as completed
@@ -544,99 +568,82 @@
          * @param {?=} postFinalize An event emitter, to be called after the step has been transitioned
          * @return {?}
          */
-        FreeNavigationMode.prototype.goToStep = /**
-         * Tries to enter the wizard step with the given destination index.
-         * When entering the destination step, the following actions are done:
-         * - the old current step is set as completed
-         * - the old current step is set as unselected
-         * - the old current step is exited
-         * - the destination step is set as selected
-         * - the destination step is entered
-         *
-         * When the destination step couldn't be entered, the following actions are done:
-         * - the current step is exited and entered in the direction `MovingDirection.Stay`
-         *
-         * @param {?} destinationIndex The index of the destination wizard step, which should be entered
-         * @param {?=} preFinalize An event emitter, to be called before the step has been transitioned
-         * @param {?=} postFinalize An event emitter, to be called after the step has been transitioned
-         * @return {?}
-         */
-            function (destinationIndex, preFinalize, postFinalize) {
-                var _this = this;
-                this.canGoToStep(destinationIndex).then(function (navigationAllowed) {
-                    if (navigationAllowed) {
-                        // the current step can be exited in the given direction
-                        /** @type {?} */
-                        var movingDirection = _this.wizardState.getMovingDirection(destinationIndex);
-                        /* istanbul ignore if */
-                        if (preFinalize) {
-                            preFinalize.emit();
+                function (destinationIndex, preFinalize, postFinalize) {
+                    var _this = this;
+                    this.canGoToStep(destinationIndex).then(function (navigationAllowed) {
+                        if (navigationAllowed) {
+                            // the current step can be exited in the given direction
+                            /** @type {?} */
+                            var movingDirection = _this.wizardState.getMovingDirection(destinationIndex);
+                            /* istanbul ignore if */
+                            if (preFinalize) {
+                                preFinalize.emit();
+                            }
+                            // leave current step
+                            _this.wizardState.currentStep.completed = true;
+                            _this.wizardState.currentStep.exit(movingDirection);
+                            _this.wizardState.currentStep.selected = false;
+                            _this.wizardState.currentStepIndex = destinationIndex;
+                            // go to next step
+                            _this.wizardState.currentStep.enter(movingDirection);
+                            _this.wizardState.currentStep.selected = true;
+                            /* istanbul ignore if */
+                            if (postFinalize) {
+                                postFinalize.emit();
+                            }
                         }
-                        // leave current step
-                        _this.wizardState.currentStep.completed = true;
-                        _this.wizardState.currentStep.exit(movingDirection);
-                        _this.wizardState.currentStep.selected = false;
-                        _this.wizardState.currentStepIndex = destinationIndex;
-                        // go to next step
-                        _this.wizardState.currentStep.enter(movingDirection);
-                        _this.wizardState.currentStep.selected = true;
-                        /* istanbul ignore if */
-                        if (postFinalize) {
-                            postFinalize.emit();
+                        else {
+                            // if the current step can't be left, reenter the current step
+                            _this.wizardState.currentStep.exit(MovingDirection.Stay);
+                            _this.wizardState.currentStep.enter(MovingDirection.Stay);
                         }
-                    }
-                    else {
-                        // if the current step can't be left, reenter the current step
-                        _this.wizardState.currentStep.exit(MovingDirection.Stay);
-                        _this.wizardState.currentStep.enter(MovingDirection.Stay);
-                    }
-                });
-            };
-        /**
+                    });
+                };
+            /**
+             * @param {?} destinationIndex
+             * @return {?}
+             */
+            FreeNavigationMode.prototype.isNavigable = /**
          * @param {?} destinationIndex
          * @return {?}
          */
-        FreeNavigationMode.prototype.isNavigable = /**
-         * @param {?} destinationIndex
-         * @return {?}
-         */
-            function (destinationIndex) {
-                return true;
-            };
-        /**
-         * Resets the state of this wizard.
-         * A reset transitions the wizard automatically to the first step and sets all steps as incomplete.
-         * In addition the whole wizard is set as incomplete
-         */
-        /**
-         * Resets the state of this wizard.
-         * A reset transitions the wizard automatically to the first step and sets all steps as incomplete.
-         * In addition the whole wizard is set as incomplete
-         * @return {?}
-         */
-        FreeNavigationMode.prototype.reset = /**
+                function (destinationIndex) {
+                    return true;
+                };
+            /**
+             * Resets the state of this wizard.
+             * A reset transitions the wizard automatically to the first step and sets all steps as incomplete.
+             * In addition the whole wizard is set as incomplete
+             */
+            /**
+             * Resets the state of this wizard.
+             * A reset transitions the wizard automatically to the first step and sets all steps as incomplete.
+             * In addition the whole wizard is set as incomplete
+             * @return {?}
+             */
+            FreeNavigationMode.prototype.reset = /**
          * Resets the state of this wizard.
          * A reset transitions the wizard automatically to the first step and sets all steps as incomplete.
          * In addition the whole wizard is set as incomplete
          * @return {?}
          */
-            function () {
-                // the wizard doesn't contain a step with the default step index
-                if (!this.wizardState.hasStep(this.wizardState.defaultStepIndex)) {
-                    throw new Error("The wizard doesn't contain a step with index " + this.wizardState.defaultStepIndex);
-                }
-                // reset the step internal state
-                this.wizardState.wizardSteps.forEach(function (step) {
-                    step.completed = false;
-                    step.selected = false;
-                });
-                // set the first step as the current step
-                this.wizardState.currentStepIndex = this.wizardState.defaultStepIndex;
-                this.wizardState.currentStep.selected = true;
-                this.wizardState.currentStep.enter(MovingDirection.Forwards);
-            };
-        return FreeNavigationMode;
-    }(NavigationMode));
+                function () {
+                    // the wizard doesn't contain a step with the default step index
+                    if (!this.wizardState.hasStep(this.wizardState.defaultStepIndex)) {
+                        throw new Error("The wizard doesn't contain a step with index " + this.wizardState.defaultStepIndex);
+                    }
+                    // reset the step internal state
+                    this.wizardState.wizardSteps.forEach(function (step) {
+                        step.completed = false;
+                        step.selected = false;
+                    });
+                    // set the first step as the current step
+                    this.wizardState.currentStepIndex = this.wizardState.defaultStepIndex;
+                    this.wizardState.currentStep.selected = true;
+                    this.wizardState.currentStep.enter(MovingDirection.Forwards);
+                };
+            return FreeNavigationMode;
+        }(NavigationMode));
 
     /**
      * @fileoverview added by tsickle
@@ -654,61 +661,61 @@
      * @author Marc Arndt
      * @abstract
      */ WizardCompletionStep = /** @class */ (function (_super) {
-        __extends(WizardCompletionStep, _super);
-        /**
-         * Basic functionality every wizard completion step needs to provide
-         *
-         * @author Marc Arndt
-         */
-        function WizardCompletionStep() {
-            var _this = _super !== null && _super.apply(this, arguments) || this;
+            __extends(WizardCompletionStep, _super);
+            /**
+             * Basic functionality every wizard completion step needs to provide
+             *
+             * @author Marc Arndt
+             */
+            function WizardCompletionStep() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                /**
+                 * @inheritDoc
+                 */
+                _this.stepExit = new core.EventEmitter();
+                /**
+                 * @inheritDoc
+                 */
+                _this.canExit = false;
+                return _this;
+            }
             /**
              * @inheritDoc
              */
-            _this.stepExit = new core.EventEmitter();
+            /**
+             * @inheritDoc
+             * @param {?} direction
+             * @return {?}
+             */
+            WizardCompletionStep.prototype.enter = /**
+         * @inheritDoc
+         * @param {?} direction
+         * @return {?}
+         */
+                function (direction) {
+                    this.completed = true;
+                    this.stepEnter.emit(direction);
+                };
             /**
              * @inheritDoc
              */
-            _this.canExit = false;
-            return _this;
-        }
-        /**
-         * @inheritDoc
-         */
-        /**
-         * @inheritDoc
-         * @param {?} direction
-         * @return {?}
-         */
-        WizardCompletionStep.prototype.enter = /**
+            /**
+             * @inheritDoc
+             * @param {?} direction
+             * @return {?}
+             */
+            WizardCompletionStep.prototype.exit = /**
          * @inheritDoc
          * @param {?} direction
          * @return {?}
          */
-            function (direction) {
-                this.completed = true;
-                this.stepEnter.emit(direction);
-            };
-        /**
-         * @inheritDoc
-         */
-        /**
-         * @inheritDoc
-         * @param {?} direction
-         * @return {?}
-         */
-        WizardCompletionStep.prototype.exit = /**
-         * @inheritDoc
-         * @param {?} direction
-         * @return {?}
-         */
-            function (direction) {
-                // set this completion step as incomplete
-                this.completed = false;
-                this.stepExit.emit(direction);
-            };
-        return WizardCompletionStep;
-    }(WizardStep));
+                function (direction) {
+                    // set this completion step as incomplete
+                    this.completed = false;
+                    this.stepExit.emit(direction);
+                };
+            return WizardCompletionStep;
+        }(WizardStep));
 
     /**
      * @fileoverview added by tsickle
@@ -730,26 +737,36 @@
      *
      * @author Marc Arndt
      */ SemiStrictNavigationMode = /** @class */ (function (_super) {
-        __extends(SemiStrictNavigationMode, _super);
-        /**
-         * Constructor
-         *
-         * @param wizardState The model/state of the wizard, that is configured with this navigation mode
-         */
-        function SemiStrictNavigationMode(wizardState) {
-            return _super.call(this, wizardState) || this;
-        }
-        /**
-         * Checks whether the wizard can be transitioned to the given destination step.
-         * A destination wizard step can be entered if:
-         * - it exists
-         * - the current step can be exited in the direction of the destination step
-         * - all "normal" wizard steps have been completed, are optional or selected, or the destination step isn't a completion step
-         *
-         * @param destinationIndex The index of the destination wizard step
-         * @returns True if the destination wizard step can be entered, false otherwise
-         */
-        /**
+            __extends(SemiStrictNavigationMode, _super);
+            /**
+             * Constructor
+             *
+             * @param wizardState The model/state of the wizard, that is configured with this navigation mode
+             */
+            function SemiStrictNavigationMode(wizardState) {
+                return _super.call(this, wizardState) || this;
+            }
+            /**
+             * Checks whether the wizard can be transitioned to the given destination step.
+             * A destination wizard step can be entered if:
+             * - it exists
+             * - the current step can be exited in the direction of the destination step
+             * - all "normal" wizard steps have been completed, are optional or selected, or the destination step isn't a completion step
+             *
+             * @param destinationIndex The index of the destination wizard step
+             * @returns True if the destination wizard step can be entered, false otherwise
+             */
+            /**
+             * Checks whether the wizard can be transitioned to the given destination step.
+             * A destination wizard step can be entered if:
+             * - it exists
+             * - the current step can be exited in the direction of the destination step
+             * - all "normal" wizard steps have been completed, are optional or selected, or the destination step isn't a completion step
+             *
+             * @param {?} destinationIndex The index of the destination wizard step
+             * @return {?} True if the destination wizard step can be entered, false otherwise
+             */
+            SemiStrictNavigationMode.prototype.canGoToStep = /**
          * Checks whether the wizard can be transitioned to the given destination step.
          * A destination wizard step can be entered if:
          * - it exists
@@ -759,189 +776,179 @@
          * @param {?} destinationIndex The index of the destination wizard step
          * @return {?} True if the destination wizard step can be entered, false otherwise
          */
-        SemiStrictNavigationMode.prototype.canGoToStep = /**
-         * Checks whether the wizard can be transitioned to the given destination step.
-         * A destination wizard step can be entered if:
-         * - it exists
-         * - the current step can be exited in the direction of the destination step
-         * - all "normal" wizard steps have been completed, are optional or selected, or the destination step isn't a completion step
+                function (destinationIndex) {
+                    var _this = this;
+                    /** @type {?} */
+                    var hasStep = this.wizardState.hasStep(destinationIndex);
+                    /** @type {?} */
+                    var movingDirection = this.wizardState.getMovingDirection(destinationIndex);
+                    /** @type {?} */
+                    var canExitCurrentStep = function (previous) {
+                        return previous ? _this.wizardState.currentStep.canExitStep(movingDirection) : Promise.resolve(false);
+                    };
+                    /** @type {?} */
+                    var canEnterDestinationStep = function (previous) {
+                        return previous ? _this.wizardState.getStepAtIndex(destinationIndex).canEnterStep(movingDirection) : Promise.resolve(false);
+                    };
+                    // provide the destination step as a lambda in case the index doesn't exist (i.e. hasStep === false)
+                    /** @type {?} */
+                    var destinationStep = function (previous) {
+                        if (previous) {
+                            /** @type {?} */
+                            var allNormalStepsCompleted = _this.wizardState.wizardSteps
+                                .filter(function (step, index) { return index < destinationIndex; })
+                                .every(function (step) { return step.completed || step.optional || step.selected; });
+                            return Promise.resolve(!(_this.wizardState.getStepAtIndex(destinationIndex) instanceof WizardCompletionStep) || allNormalStepsCompleted);
+                        }
+                        else {
+                            return Promise.resolve(false);
+                        }
+                    };
+                    return Promise.resolve(hasStep)
+                        .then(canExitCurrentStep)
+                        .then(canEnterDestinationStep)
+                        .then(destinationStep);
+                };
+            /**
+             * Tries to enter the wizard step with the given destination index.
+             * When entering the destination step, the following actions are done:
+             * - the old current step is set as completed
+             * - the old current step is set as unselected
+             * - the old current step is exited
+             * - the destination step is set as selected
+             * - the destination step is entered
+             *
+             * When the destination step couldn't be entered, the following actions are done:
+             * - the current step is exited and entered in the direction `MovingDirection.Stay`
+             *
+             * @param destinationIndex The index of the destination wizard step, which should be entered
+             * @param preFinalize An event emitter, to be called before the step has been transitioned
+             * @param postFinalize An event emitter, to be called after the step has been transitioned
+             */
+            /**
+             * Tries to enter the wizard step with the given destination index.
+             * When entering the destination step, the following actions are done:
+             * - the old current step is set as completed
+             * - the old current step is set as unselected
+             * - the old current step is exited
+             * - the destination step is set as selected
+             * - the destination step is entered
+             *
+             * When the destination step couldn't be entered, the following actions are done:
+             * - the current step is exited and entered in the direction `MovingDirection.Stay`
+             *
+             * @param {?} destinationIndex The index of the destination wizard step, which should be entered
+             * @param {?=} preFinalize An event emitter, to be called before the step has been transitioned
+             * @param {?=} postFinalize An event emitter, to be called after the step has been transitioned
+             * @return {?}
+             */
+            SemiStrictNavigationMode.prototype.goToStep = /**
+         * Tries to enter the wizard step with the given destination index.
+         * When entering the destination step, the following actions are done:
+         * - the old current step is set as completed
+         * - the old current step is set as unselected
+         * - the old current step is exited
+         * - the destination step is set as selected
+         * - the destination step is entered
          *
-         * @param {?} destinationIndex The index of the destination wizard step
-         * @return {?} True if the destination wizard step can be entered, false otherwise
+         * When the destination step couldn't be entered, the following actions are done:
+         * - the current step is exited and entered in the direction `MovingDirection.Stay`
+         *
+         * @param {?} destinationIndex The index of the destination wizard step, which should be entered
+         * @param {?=} preFinalize An event emitter, to be called before the step has been transitioned
+         * @param {?=} postFinalize An event emitter, to be called after the step has been transitioned
+         * @return {?}
          */
-            function (destinationIndex) {
-                var _this = this;
-                /** @type {?} */
-                var hasStep = this.wizardState.hasStep(destinationIndex);
-                /** @type {?} */
-                var movingDirection = this.wizardState.getMovingDirection(destinationIndex);
-                /** @type {?} */
-                var canExitCurrentStep = function (previous) {
-                    return previous ? _this.wizardState.currentStep.canExitStep(movingDirection) : Promise.resolve(false);
+                function (destinationIndex, preFinalize, postFinalize) {
+                    var _this = this;
+                    this.canGoToStep(destinationIndex).then(function (navigationAllowed) {
+                        if (navigationAllowed) {
+                            // the current step can be exited in the given direction
+                            /** @type {?} */
+                            var movingDirection = _this.wizardState.getMovingDirection(destinationIndex);
+                            /* istanbul ignore if */
+                            if (preFinalize) {
+                                preFinalize.emit();
+                            }
+                            // leave current step
+                            _this.wizardState.currentStep.completed = true;
+                            _this.wizardState.currentStep.exit(movingDirection);
+                            _this.wizardState.currentStep.selected = false;
+                            _this.wizardState.currentStepIndex = destinationIndex;
+                            // go to next step
+                            _this.wizardState.currentStep.enter(movingDirection);
+                            _this.wizardState.currentStep.selected = true;
+                            /* istanbul ignore if */
+                            if (postFinalize) {
+                                postFinalize.emit();
+                            }
+                        }
+                        else {
+                            // if the current step can't be left, reenter the current step
+                            _this.wizardState.currentStep.exit(MovingDirection.Stay);
+                            _this.wizardState.currentStep.enter(MovingDirection.Stay);
+                        }
+                    });
                 };
-                /** @type {?} */
-                var canEnterDestinationStep = function (previous) {
-                    return previous ? _this.wizardState.getStepAtIndex(destinationIndex).canEnterStep(movingDirection) : Promise.resolve(false);
-                };
-                // provide the destination step as a lambda in case the index doesn't exist (i.e. hasStep === false)
-                /** @type {?} */
-                var destinationStep = function (previous) {
-                    if (previous) {
-                        /** @type {?} */
-                        var allNormalStepsCompleted = _this.wizardState.wizardSteps
-                            .filter(function (step, index) { return index < destinationIndex; })
+            /**
+             * @inheritDoc
+             */
+            /**
+             * @inheritDoc
+             * @param {?} destinationIndex
+             * @return {?}
+             */
+            SemiStrictNavigationMode.prototype.isNavigable = /**
+         * @inheritDoc
+         * @param {?} destinationIndex
+         * @return {?}
+         */
+                function (destinationIndex) {
+                    if (this.wizardState.getStepAtIndex(destinationIndex) instanceof WizardCompletionStep) {
+                        // a completion step can only be entered, if all previous steps have been completed, are optional, or selected
+                        return this.wizardState.wizardSteps.filter(function (step, index) { return index < destinationIndex; })
                             .every(function (step) { return step.completed || step.optional || step.selected; });
-                        return Promise.resolve(!(_this.wizardState.getStepAtIndex(destinationIndex) instanceof WizardCompletionStep) || allNormalStepsCompleted);
                     }
                     else {
-                        return Promise.resolve(false);
+                        // a "normal" step can always be entered
+                        return true;
                     }
                 };
-                return Promise.resolve(hasStep)
-                    .then(canExitCurrentStep)
-                    .then(canEnterDestinationStep)
-                    .then(destinationStep);
-            };
-        /**
-         * Tries to enter the wizard step with the given destination index.
-         * When entering the destination step, the following actions are done:
-         * - the old current step is set as completed
-         * - the old current step is set as unselected
-         * - the old current step is exited
-         * - the destination step is set as selected
-         * - the destination step is entered
-         *
-         * When the destination step couldn't be entered, the following actions are done:
-         * - the current step is exited and entered in the direction `MovingDirection.Stay`
-         *
-         * @param destinationIndex The index of the destination wizard step, which should be entered
-         * @param preFinalize An event emitter, to be called before the step has been transitioned
-         * @param postFinalize An event emitter, to be called after the step has been transitioned
-         */
-        /**
-         * Tries to enter the wizard step with the given destination index.
-         * When entering the destination step, the following actions are done:
-         * - the old current step is set as completed
-         * - the old current step is set as unselected
-         * - the old current step is exited
-         * - the destination step is set as selected
-         * - the destination step is entered
-         *
-         * When the destination step couldn't be entered, the following actions are done:
-         * - the current step is exited and entered in the direction `MovingDirection.Stay`
-         *
-         * @param {?} destinationIndex The index of the destination wizard step, which should be entered
-         * @param {?=} preFinalize An event emitter, to be called before the step has been transitioned
-         * @param {?=} postFinalize An event emitter, to be called after the step has been transitioned
+            /**
+             * @inheritDoc
+             */
+            /**
+             * @inheritDoc
+             * @return {?}
+             */
+            SemiStrictNavigationMode.prototype.reset = /**
+         * @inheritDoc
          * @return {?}
          */
-        SemiStrictNavigationMode.prototype.goToStep = /**
-         * Tries to enter the wizard step with the given destination index.
-         * When entering the destination step, the following actions are done:
-         * - the old current step is set as completed
-         * - the old current step is set as unselected
-         * - the old current step is exited
-         * - the destination step is set as selected
-         * - the destination step is entered
-         *
-         * When the destination step couldn't be entered, the following actions are done:
-         * - the current step is exited and entered in the direction `MovingDirection.Stay`
-         *
-         * @param {?} destinationIndex The index of the destination wizard step, which should be entered
-         * @param {?=} preFinalize An event emitter, to be called before the step has been transitioned
-         * @param {?=} postFinalize An event emitter, to be called after the step has been transitioned
-         * @return {?}
-         */
-            function (destinationIndex, preFinalize, postFinalize) {
-                var _this = this;
-                this.canGoToStep(destinationIndex).then(function (navigationAllowed) {
-                    if (navigationAllowed) {
-                        // the current step can be exited in the given direction
-                        /** @type {?} */
-                        var movingDirection = _this.wizardState.getMovingDirection(destinationIndex);
-                        /* istanbul ignore if */
-                        if (preFinalize) {
-                            preFinalize.emit();
-                        }
-                        // leave current step
-                        _this.wizardState.currentStep.completed = true;
-                        _this.wizardState.currentStep.exit(movingDirection);
-                        _this.wizardState.currentStep.selected = false;
-                        _this.wizardState.currentStepIndex = destinationIndex;
-                        // go to next step
-                        _this.wizardState.currentStep.enter(movingDirection);
-                        _this.wizardState.currentStep.selected = true;
-                        /* istanbul ignore if */
-                        if (postFinalize) {
-                            postFinalize.emit();
-                        }
+                function () {
+                    // the wizard doesn't contain a step with the default step index
+                    if (!this.wizardState.hasStep(this.wizardState.defaultStepIndex)) {
+                        throw new Error("The wizard doesn't contain a step with index " + this.wizardState.defaultStepIndex);
                     }
-                    else {
-                        // if the current step can't be left, reenter the current step
-                        _this.wizardState.currentStep.exit(MovingDirection.Stay);
-                        _this.wizardState.currentStep.enter(MovingDirection.Stay);
+                    // the default step is a completion step and the wizard contains more than one step
+                    /** @type {?} */
+                    var defaultCompletionStep = this.wizardState.getStepAtIndex(this.wizardState.defaultStepIndex) instanceof WizardCompletionStep &&
+                        this.wizardState.wizardSteps.length !== 1;
+                    if (defaultCompletionStep) {
+                        throw new Error("The default step index " + this.wizardState.defaultStepIndex + " references a completion step");
                     }
-                });
-            };
-        /**
-         * @inheritDoc
-         */
-        /**
-         * @inheritDoc
-         * @param {?} destinationIndex
-         * @return {?}
-         */
-        SemiStrictNavigationMode.prototype.isNavigable = /**
-         * @inheritDoc
-         * @param {?} destinationIndex
-         * @return {?}
-         */
-            function (destinationIndex) {
-                if (this.wizardState.getStepAtIndex(destinationIndex) instanceof WizardCompletionStep) {
-                    // a completion step can only be entered, if all previous steps have been completed, are optional, or selected
-                    return this.wizardState.wizardSteps.filter(function (step, index) { return index < destinationIndex; })
-                        .every(function (step) { return step.completed || step.optional || step.selected; });
-                }
-                else {
-                    // a "normal" step can always be entered
-                    return true;
-                }
-            };
-        /**
-         * @inheritDoc
-         */
-        /**
-         * @inheritDoc
-         * @return {?}
-         */
-        SemiStrictNavigationMode.prototype.reset = /**
-         * @inheritDoc
-         * @return {?}
-         */
-            function () {
-                // the wizard doesn't contain a step with the default step index
-                if (!this.wizardState.hasStep(this.wizardState.defaultStepIndex)) {
-                    throw new Error("The wizard doesn't contain a step with index " + this.wizardState.defaultStepIndex);
-                }
-                // the default step is a completion step and the wizard contains more than one step
-                /** @type {?} */
-                var defaultCompletionStep = this.wizardState.getStepAtIndex(this.wizardState.defaultStepIndex) instanceof WizardCompletionStep &&
-                    this.wizardState.wizardSteps.length !== 1;
-                if (defaultCompletionStep) {
-                    throw new Error("The default step index " + this.wizardState.defaultStepIndex + " references a completion step");
-                }
-                // reset the step internal state
-                this.wizardState.wizardSteps.forEach(function (step) {
-                    step.completed = false;
-                    step.selected = false;
-                });
-                // set the first step as the current step
-                this.wizardState.currentStepIndex = this.wizardState.defaultStepIndex;
-                this.wizardState.currentStep.selected = true;
-                this.wizardState.currentStep.enter(MovingDirection.Forwards);
-            };
-        return SemiStrictNavigationMode;
-    }(NavigationMode));
+                    // reset the step internal state
+                    this.wizardState.wizardSteps.forEach(function (step) {
+                        step.completed = false;
+                        step.selected = false;
+                    });
+                    // set the first step as the current step
+                    this.wizardState.currentStepIndex = this.wizardState.defaultStepIndex;
+                    this.wizardState.currentStep.selected = true;
+                    this.wizardState.currentStep.enter(MovingDirection.Forwards);
+                };
+            return SemiStrictNavigationMode;
+        }(NavigationMode));
 
     /**
      * @fileoverview added by tsickle
@@ -963,26 +970,36 @@
      *
      * @author Marc Arndt
      */ StrictNavigationMode = /** @class */ (function (_super) {
-        __extends(StrictNavigationMode, _super);
-        /**
-         * Constructor
-         *
-         * @param wizardState The state of the wizard, that is configured with this navigation mode
-         */
-        function StrictNavigationMode(wizardState) {
-            return _super.call(this, wizardState) || this;
-        }
-        /**
-         * Checks whether the wizard can be transitioned to the given destination step.
-         * A destination wizard step can be entered if:
-         * - it exists
-         * - the current step can be exited in the direction of the destination step
-         * - all previous steps to the destination step have been completed or are optional
-         *
-         * @param destinationIndex The index of the destination wizard step
-         * @returns True if the destination wizard step can be entered, false otherwise
-         */
-        /**
+            __extends(StrictNavigationMode, _super);
+            /**
+             * Constructor
+             *
+             * @param wizardState The state of the wizard, that is configured with this navigation mode
+             */
+            function StrictNavigationMode(wizardState) {
+                return _super.call(this, wizardState) || this;
+            }
+            /**
+             * Checks whether the wizard can be transitioned to the given destination step.
+             * A destination wizard step can be entered if:
+             * - it exists
+             * - the current step can be exited in the direction of the destination step
+             * - all previous steps to the destination step have been completed or are optional
+             *
+             * @param destinationIndex The index of the destination wizard step
+             * @returns True if the destination wizard step can be entered, false otherwise
+             */
+            /**
+             * Checks whether the wizard can be transitioned to the given destination step.
+             * A destination wizard step can be entered if:
+             * - it exists
+             * - the current step can be exited in the direction of the destination step
+             * - all previous steps to the destination step have been completed or are optional
+             *
+             * @param {?} destinationIndex The index of the destination wizard step
+             * @return {?} True if the destination wizard step can be entered, false otherwise
+             */
+            StrictNavigationMode.prototype.canGoToStep = /**
          * Checks whether the wizard can be transitioned to the given destination step.
          * A destination wizard step can be entered if:
          * - it exists
@@ -992,64 +1009,72 @@
          * @param {?} destinationIndex The index of the destination wizard step
          * @return {?} True if the destination wizard step can be entered, false otherwise
          */
-        StrictNavigationMode.prototype.canGoToStep = /**
-         * Checks whether the wizard can be transitioned to the given destination step.
-         * A destination wizard step can be entered if:
-         * - it exists
-         * - the current step can be exited in the direction of the destination step
-         * - all previous steps to the destination step have been completed or are optional
-         *
-         * @param {?} destinationIndex The index of the destination wizard step
-         * @return {?} True if the destination wizard step can be entered, false otherwise
-         */
-            function (destinationIndex) {
-                var _this = this;
-                /** @type {?} */
-                var hasStep = this.wizardState.hasStep(destinationIndex);
-                /** @type {?} */
-                var movingDirection = this.wizardState.getMovingDirection(destinationIndex);
-                /** @type {?} */
-                var canExitCurrentStep = function (previous) {
-                    return previous ? _this.wizardState.currentStep.canExitStep(movingDirection) : Promise.resolve(false);
+                function (destinationIndex) {
+                    var _this = this;
+                    /** @type {?} */
+                    var hasStep = this.wizardState.hasStep(destinationIndex);
+                    /** @type {?} */
+                    var movingDirection = this.wizardState.getMovingDirection(destinationIndex);
+                    /** @type {?} */
+                    var canExitCurrentStep = function (previous) {
+                        return previous ? _this.wizardState.currentStep.canExitStep(movingDirection) : Promise.resolve(false);
+                    };
+                    /** @type {?} */
+                    var canEnterDestinationStep = function (previous) {
+                        return previous ? _this.wizardState.getStepAtIndex(destinationIndex).canEnterStep(movingDirection) : Promise.resolve(false);
+                    };
+                    /** @type {?} */
+                    var allPreviousStepsComplete = function (previous) {
+                        if (previous) {
+                            return Promise.resolve(_this.wizardState.wizardSteps
+                                .filter(function (step, index) { return index < destinationIndex && index !== _this.wizardState.currentStepIndex; })
+                                .every(function (step) { return step.completed || step.optional; }));
+                        }
+                        else {
+                            return Promise.resolve(false);
+                        }
+                    };
+                    return Promise.resolve(hasStep)
+                        .then(canExitCurrentStep)
+                        .then(canEnterDestinationStep)
+                        .then(allPreviousStepsComplete);
                 };
-                /** @type {?} */
-                var canEnterDestinationStep = function (previous) {
-                    return previous ? _this.wizardState.getStepAtIndex(destinationIndex).canEnterStep(movingDirection) : Promise.resolve(false);
-                };
-                /** @type {?} */
-                var allPreviousStepsComplete = function (previous) {
-                    if (previous) {
-                        return Promise.resolve(_this.wizardState.wizardSteps
-                            .filter(function (step, index) { return index < destinationIndex && index !== _this.wizardState.currentStepIndex; })
-                            .every(function (step) { return step.completed || step.optional; }));
-                    }
-                    else {
-                        return Promise.resolve(false);
-                    }
-                };
-                return Promise.resolve(hasStep)
-                    .then(canExitCurrentStep)
-                    .then(canEnterDestinationStep)
-                    .then(allPreviousStepsComplete);
-            };
-        /**
-         * Tries to enter the wizard step with the given destination index.
-         * When entering the destination step, the following actions are done:
-         * - the old current step is set as completed
-         * - the old current step is set as unselected
-         * - the old current step is exited
-         * - all steps between the old current step and the destination step are marked as incomplete
-         * - the destination step is set as selected
-         * - the destination step is entered
-         *
-         * When the destination step couldn't be entered, the following actions are done:
-         * - the current step is exited and entered in the direction `MovingDirection.Stay`
-         *
-         * @param destinationIndex The index of the destination wizard step, which should be entered
-         * @param preFinalize An event emitter, to be called before the step has been transitioned
-         * @param postFinalize An event emitter, to be called after the step has been transitioned
-         */
-        /**
+            /**
+             * Tries to enter the wizard step with the given destination index.
+             * When entering the destination step, the following actions are done:
+             * - the old current step is set as completed
+             * - the old current step is set as unselected
+             * - the old current step is exited
+             * - all steps between the old current step and the destination step are marked as incomplete
+             * - the destination step is set as selected
+             * - the destination step is entered
+             *
+             * When the destination step couldn't be entered, the following actions are done:
+             * - the current step is exited and entered in the direction `MovingDirection.Stay`
+             *
+             * @param destinationIndex The index of the destination wizard step, which should be entered
+             * @param preFinalize An event emitter, to be called before the step has been transitioned
+             * @param postFinalize An event emitter, to be called after the step has been transitioned
+             */
+            /**
+             * Tries to enter the wizard step with the given destination index.
+             * When entering the destination step, the following actions are done:
+             * - the old current step is set as completed
+             * - the old current step is set as unselected
+             * - the old current step is exited
+             * - all steps between the old current step and the destination step are marked as incomplete
+             * - the destination step is set as selected
+             * - the destination step is entered
+             *
+             * When the destination step couldn't be entered, the following actions are done:
+             * - the current step is exited and entered in the direction `MovingDirection.Stay`
+             *
+             * @param {?} destinationIndex The index of the destination wizard step, which should be entered
+             * @param {?=} preFinalize An event emitter, to be called before the step has been transitioned
+             * @param {?=} postFinalize An event emitter, to be called after the step has been transitioned
+             * @return {?}
+             */
+            StrictNavigationMode.prototype.goToStep = /**
          * Tries to enter the wizard step with the given destination index.
          * When entering the destination step, the following actions are done:
          * - the old current step is set as completed
@@ -1067,113 +1092,95 @@
          * @param {?=} postFinalize An event emitter, to be called after the step has been transitioned
          * @return {?}
          */
-        StrictNavigationMode.prototype.goToStep = /**
-         * Tries to enter the wizard step with the given destination index.
-         * When entering the destination step, the following actions are done:
-         * - the old current step is set as completed
-         * - the old current step is set as unselected
-         * - the old current step is exited
-         * - all steps between the old current step and the destination step are marked as incomplete
-         * - the destination step is set as selected
-         * - the destination step is entered
-         *
-         * When the destination step couldn't be entered, the following actions are done:
-         * - the current step is exited and entered in the direction `MovingDirection.Stay`
-         *
-         * @param {?} destinationIndex The index of the destination wizard step, which should be entered
-         * @param {?=} preFinalize An event emitter, to be called before the step has been transitioned
-         * @param {?=} postFinalize An event emitter, to be called after the step has been transitioned
-         * @return {?}
-         */
-            function (destinationIndex, preFinalize, postFinalize) {
-                var _this = this;
-                this.canGoToStep(destinationIndex).then(function (navigationAllowed) {
-                    if (navigationAllowed) {
-                        /** @type {?} */
-                        var movingDirection = _this.wizardState.getMovingDirection(destinationIndex);
-                        /* istanbul ignore if */
-                        if (preFinalize) {
-                            preFinalize.emit();
+                function (destinationIndex, preFinalize, postFinalize) {
+                    var _this = this;
+                    this.canGoToStep(destinationIndex).then(function (navigationAllowed) {
+                        if (navigationAllowed) {
+                            /** @type {?} */
+                            var movingDirection = _this.wizardState.getMovingDirection(destinationIndex);
+                            /* istanbul ignore if */
+                            if (preFinalize) {
+                                preFinalize.emit();
+                            }
+                            // leave current step
+                            _this.wizardState.currentStep.completed = true;
+                            _this.wizardState.currentStep.exit(movingDirection);
+                            _this.wizardState.currentStep.selected = false;
+                            // set all steps after the destination step to incomplete
+                            _this.wizardState.wizardSteps
+                                .filter(function (step, index) { return _this.wizardState.currentStepIndex > destinationIndex && index > destinationIndex; })
+                                .forEach(function (step) { return step.completed = false; });
+                            _this.wizardState.currentStepIndex = destinationIndex;
+                            // go to next step
+                            _this.wizardState.currentStep.enter(movingDirection);
+                            _this.wizardState.currentStep.selected = true;
+                            /* istanbul ignore if */
+                            if (postFinalize) {
+                                postFinalize.emit();
+                            }
                         }
-                        // leave current step
-                        _this.wizardState.currentStep.completed = true;
-                        _this.wizardState.currentStep.exit(movingDirection);
-                        _this.wizardState.currentStep.selected = false;
-                        // set all steps after the destination step to incomplete
-                        _this.wizardState.wizardSteps
-                            .filter(function (step, index) { return _this.wizardState.currentStepIndex > destinationIndex && index > destinationIndex; })
-                            .forEach(function (step) { return step.completed = false; });
-                        _this.wizardState.currentStepIndex = destinationIndex;
-                        // go to next step
-                        _this.wizardState.currentStep.enter(movingDirection);
-                        _this.wizardState.currentStep.selected = true;
-                        /* istanbul ignore if */
-                        if (postFinalize) {
-                            postFinalize.emit();
+                        else {
+                            // if the current step can't be left, reenter the current step
+                            _this.wizardState.currentStep.exit(MovingDirection.Stay);
+                            _this.wizardState.currentStep.enter(MovingDirection.Stay);
                         }
-                    }
-                    else {
-                        // if the current step can't be left, reenter the current step
-                        _this.wizardState.currentStep.exit(MovingDirection.Stay);
-                        _this.wizardState.currentStep.enter(MovingDirection.Stay);
-                    }
-                });
-            };
-        /**
+                    });
+                };
+            /**
+             * @param {?} destinationIndex
+             * @return {?}
+             */
+            StrictNavigationMode.prototype.isNavigable = /**
          * @param {?} destinationIndex
          * @return {?}
          */
-        StrictNavigationMode.prototype.isNavigable = /**
-         * @param {?} destinationIndex
-         * @return {?}
-         */
-            function (destinationIndex) {
-                // a wizard step can be navigated to through the navigation bar, iff it's located before the current wizard step
-                return destinationIndex < this.wizardState.currentStepIndex;
-            };
-        /**
-         * Resets the state of this wizard.
-         * A reset transitions the wizard automatically to the first step and sets all steps as incomplete.
-         * In addition the whole wizard is set as incomplete
-         */
-        /**
-         * Resets the state of this wizard.
-         * A reset transitions the wizard automatically to the first step and sets all steps as incomplete.
-         * In addition the whole wizard is set as incomplete
-         * @return {?}
-         */
-        StrictNavigationMode.prototype.reset = /**
+                function (destinationIndex) {
+                    // a wizard step can be navigated to through the navigation bar, iff it's located before the current wizard step
+                    return destinationIndex < this.wizardState.currentStepIndex;
+                };
+            /**
+             * Resets the state of this wizard.
+             * A reset transitions the wizard automatically to the first step and sets all steps as incomplete.
+             * In addition the whole wizard is set as incomplete
+             */
+            /**
+             * Resets the state of this wizard.
+             * A reset transitions the wizard automatically to the first step and sets all steps as incomplete.
+             * In addition the whole wizard is set as incomplete
+             * @return {?}
+             */
+            StrictNavigationMode.prototype.reset = /**
          * Resets the state of this wizard.
          * A reset transitions the wizard automatically to the first step and sets all steps as incomplete.
          * In addition the whole wizard is set as incomplete
          * @return {?}
          */
-            function () {
-                var _this = this;
-                // the wizard doesn't contain a step with the default step index
-                if (!this.wizardState.hasStep(this.wizardState.defaultStepIndex)) {
-                    throw new Error("The wizard doesn't contain a step with index " + this.wizardState.defaultStepIndex);
-                }
-                // at least one step is before the default step, that is not optional
-                /** @type {?} */
-                var illegalDefaultStep = this.wizardState.wizardSteps
-                    .filter(function (step, index) { return index < _this.wizardState.defaultStepIndex; })
-                    .some(function (step) { return !step.optional; });
-                if (illegalDefaultStep) {
-                    throw new Error("The default step index " + this.wizardState.defaultStepIndex + " is located after a non optional step");
-                }
-                // reset the step internal state
-                this.wizardState.wizardSteps.forEach(function (step) {
-                    step.completed = false;
-                    step.selected = false;
-                });
-                // set the first step as the current step
-                this.wizardState.currentStepIndex = this.wizardState.defaultStepIndex;
-                this.wizardState.currentStep.selected = true;
-                this.wizardState.currentStep.enter(MovingDirection.Forwards);
-            };
-        return StrictNavigationMode;
-    }(NavigationMode));
+                function () {
+                    var _this = this;
+                    // the wizard doesn't contain a step with the default step index
+                    if (!this.wizardState.hasStep(this.wizardState.defaultStepIndex)) {
+                        throw new Error("The wizard doesn't contain a step with index " + this.wizardState.defaultStepIndex);
+                    }
+                    // at least one step is before the default step, that is not optional
+                    /** @type {?} */
+                    var illegalDefaultStep = this.wizardState.wizardSteps
+                        .filter(function (step, index) { return index < _this.wizardState.defaultStepIndex; })
+                        .some(function (step) { return !step.optional; });
+                    if (illegalDefaultStep) {
+                        throw new Error("The default step index " + this.wizardState.defaultStepIndex + " is located after a non optional step");
+                    }
+                    // reset the step internal state
+                    this.wizardState.wizardSteps.forEach(function (step) {
+                        step.completed = false;
+                        step.selected = false;
+                    });
+                    // set the first step as the current step
+                    this.wizardState.currentStepIndex = this.wizardState.defaultStepIndex;
+                    this.wizardState.currentStep.selected = true;
+                    this.wizardState.currentStep.enter(MovingDirection.Forwards);
+                };
+            return StrictNavigationMode;
+        }(NavigationMode));
 
     /**
      * @fileoverview added by tsickle
@@ -1245,15 +1252,15 @@
              * - the default step index, set in the [[WizardComponent]]
              * @return {?}
              */ function () {
-                /** @type {?} */
-                var foundDefaultStep = this.wizardSteps.find(function (step) { return step.defaultSelected; });
-                if (foundDefaultStep) {
-                    return this.getIndexOfStep(foundDefaultStep);
-                }
-                else {
-                    return this._defaultStepIndex;
-                }
-            },
+                    /** @type {?} */
+                    var foundDefaultStep = this.wizardSteps.find(function (step) { return step.defaultSelected; });
+                    if (foundDefaultStep) {
+                        return this.getIndexOfStep(foundDefaultStep);
+                    }
+                    else {
+                        return this._defaultStepIndex;
+                    }
+                },
             /**
              * Sets the initial default step.
              * Beware: This initial default is only used if no wizard step has been enhanced with the `selected` directive
@@ -1267,8 +1274,8 @@
              * @param {?} defaultStepIndex The new default wizard step index
              * @return {?}
              */ function (defaultStepIndex) {
-                this._defaultStepIndex = defaultStepIndex;
-            },
+                    this._defaultStepIndex = defaultStepIndex;
+                },
             enumerable: true,
             configurable: true
         });
@@ -1290,13 +1297,13 @@
              * If this wizard contains no steps, currentStep is null
              * @return {?}
              */ function () {
-                if (this.hasStep(this.currentStepIndex)) {
-                    return this.wizardSteps[this.currentStepIndex];
-                }
-                else {
-                    return null;
-                }
-            },
+                    if (this.hasStep(this.currentStepIndex)) {
+                        return this.wizardSteps[this.currentStepIndex];
+                    }
+                    else {
+                        return null;
+                    }
+                },
             enumerable: true,
             configurable: true
         });
@@ -1310,8 +1317,8 @@
              * If the wizard has been completed, i.e. all steps are either completed or optional, this value is true, otherwise it is false
              * @return {?}
              */ function () {
-                return this.wizardSteps.every(function (step) { return step.completed || step.optional; });
-            },
+                    return this.wizardSteps.every(function (step) { return step.completed || step.optional; });
+                },
             enumerable: true,
             configurable: true
         });
@@ -1640,8 +1647,8 @@
              *
              * @return {?} True if this wizard uses a horizontal orientation
              */ function () {
-                return this.navBarLocation === 'top' || this.navBarLocation === 'bottom';
-            },
+                    return this.navBarLocation === 'top' || this.navBarLocation === 'bottom';
+                },
             enumerable: true,
             configurable: true
         });
@@ -1658,8 +1665,8 @@
              *
              * @return {?} True if this wizard uses a vertical orientation
              */ function () {
-                return this.navBarLocation === 'left' || this.navBarLocation === 'right';
-            },
+                    return this.navBarLocation === 'left' || this.navBarLocation === 'right';
+                },
             enumerable: true,
             configurable: true
         });
@@ -1671,8 +1678,8 @@
              * The navigation mode for this wizard
              * @return {?}
              */ function () {
-                return this.model.navigationMode;
-            },
+                    return this.model.navigationMode;
+                },
             enumerable: true,
             configurable: true
         });
@@ -1757,13 +1764,15 @@
                 this.navigation.reset();
             };
         WizardComponent.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'aw-wizard',
-                        template: "<aw-wizard-navigation-bar\n  [direction]=\"navBarDirection\"\n  *ngIf=\"navBarLocation == 'top' || navBarLocation == 'left'\"\n  [ngClass]=\"{\n    vertical: navBarLocation == 'left',\n    horizontal: navBarLocation == 'top',\n    small: navBarLayout == 'small',\n    'large-filled': navBarLayout == 'large-filled',\n    'large-filled-symbols': navBarLayout == 'large-filled-symbols',\n    'large-empty': navBarLayout == 'large-empty',\n    'large-empty-symbols': navBarLayout == 'large-empty-symbols'\n  }\">\n</aw-wizard-navigation-bar>\n\n<div [ngClass]=\"{\n  'wizard-steps': true,\n  vertical: navBarLocation == 'left' || navBarLocation == 'right',\n  horizontal: navBarLocation == 'top' || navBarLocation == 'bottom'\n}\">\n  <ng-content></ng-content>\n</div>\n\n<aw-wizard-navigation-bar\n  [direction]=\"navBarDirection\"\n  *ngIf=\"navBarLocation == 'bottom' || navBarLocation == 'right'\"\n  [ngClass]=\"{\n    vertical: navBarLocation == 'right',\n    horizontal: navBarLocation == 'bottom',\n    small: navBarLayout == 'small',\n    'large-filled': navBarLayout == 'large-filled',\n    'large-filled-symbols': navBarLayout == 'large-filled-symbols',\n    'large-empty': navBarLayout == 'large-empty',\n    'large-empty-symbols': navBarLayout == 'large-empty-symbols'\n  }\">\n</aw-wizard-navigation-bar>\n",
-                        encapsulation: core.ViewEncapsulation.None,
-                        providers: [WizardState],
-                        styles: ["aw-wizard{display:flex;justify-content:flex-start}aw-wizard.vertical{flex-direction:row}aw-wizard.horizontal{flex-direction:column}aw-wizard .wizard-steps{top:0;display:flex}aw-wizard .wizard-steps.vertical{min-width:calc(100% - 280px);width:80%;height:100%;flex-direction:column}aw-wizard .wizard-steps.horizontal{width:100%;flex-direction:row}"]
-                    }] }
+            {
+                type: core.Component, args: [{
+                    selector: 'aw-wizard',
+                    template: "<aw-wizard-navigation-bar\n  [direction]=\"navBarDirection\"\n  *ngIf=\"navBarLocation == 'top' || navBarLocation == 'left'\"\n  [ngClass]=\"{\n    vertical: navBarLocation == 'left',\n    horizontal: navBarLocation == 'top',\n    small: navBarLayout == 'small',\n    'large-filled': navBarLayout == 'large-filled',\n    'large-filled-symbols': navBarLayout == 'large-filled-symbols',\n    'large-empty': navBarLayout == 'large-empty',\n    'large-empty-symbols': navBarLayout == 'large-empty-symbols'\n  }\">\n</aw-wizard-navigation-bar>\n\n<div [ngClass]=\"{\n  'wizard-steps': true,\n  vertical: navBarLocation == 'left' || navBarLocation == 'right',\n  horizontal: navBarLocation == 'top' || navBarLocation == 'bottom'\n}\">\n  <ng-content></ng-content>\n</div>\n\n<aw-wizard-navigation-bar\n  [direction]=\"navBarDirection\"\n  *ngIf=\"navBarLocation == 'bottom' || navBarLocation == 'right'\"\n  [ngClass]=\"{\n    vertical: navBarLocation == 'right',\n    horizontal: navBarLocation == 'bottom',\n    small: navBarLayout == 'small',\n    'large-filled': navBarLayout == 'large-filled',\n    'large-filled-symbols': navBarLayout == 'large-filled-symbols',\n    'large-empty': navBarLayout == 'large-empty',\n    'large-empty-symbols': navBarLayout == 'large-empty-symbols'\n  }\">\n</aw-wizard-navigation-bar>\n",
+                    encapsulation: core.ViewEncapsulation.None,
+                    providers: [WizardState],
+                    styles: ["aw-wizard{display:flex;justify-content:flex-start}aw-wizard.vertical{flex-direction:row}aw-wizard.horizontal{flex-direction:column}aw-wizard .wizard-steps{top:0;display:flex}aw-wizard .wizard-steps.vertical{min-width:calc(100% - 280px);width:80%;height:100%;flex-direction:column}aw-wizard .wizard-steps.horizontal{width:100%;flex-direction:row}"]
+                }]
+            }
         ];
         WizardComponent.ctorParameters = function () {
             return [
@@ -1866,16 +1875,18 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         WizardCompletionStepComponent.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'aw-wizard-completion-step',
-                        template: "<ng-content></ng-content>\n",
-                        encapsulation: core.ViewEncapsulation.None,
-                        providers: [
-                            { provide: WizardStep, useExisting: core.forwardRef(function () { return WizardCompletionStepComponent; }) },
-                            { provide: WizardCompletionStep, useExisting: core.forwardRef(function () { return WizardCompletionStepComponent; }) }
-                        ],
-                        styles: ["aw-wizard-completion-step{height:auto;width:100%}"]
-                    }] }
+            {
+                type: core.Component, args: [{
+                    selector: 'aw-wizard-completion-step',
+                    template: "<ng-content></ng-content>\n",
+                    encapsulation: core.ViewEncapsulation.None,
+                    providers: [
+                        { provide: WizardStep, useExisting: core.forwardRef(function () { return WizardCompletionStepComponent; }) },
+                        { provide: WizardCompletionStep, useExisting: core.forwardRef(function () { return WizardCompletionStepComponent; }) }
+                    ],
+                    styles: ["aw-wizard-completion-step{height:auto;width:100%}"]
+                }]
+            }
         ];
         return WizardCompletionStepComponent;
     }(WizardCompletionStep));
@@ -1919,8 +1930,8 @@
              * The navigation mode
              * @return {?}
              */ function () {
-                return this.wizardState.navigationMode;
-            },
+                    return this.wizardState.navigationMode;
+                },
             enumerable: true,
             configurable: true
         });
@@ -1935,14 +1946,14 @@
              *
              * @return {?} An array containing all [[WizardStep]]s
              */ function () {
-                switch (this.direction) {
-                    case 'right-to-left':
-                        return this.wizardState.wizardSteps.slice().reverse();
-                    case 'left-to-right':
-                    default:
-                        return this.wizardState.wizardSteps;
-                }
-            },
+                    switch (this.direction) {
+                        case 'right-to-left':
+                            return this.wizardState.wizardSteps.slice().reverse();
+                        case 'left-to-right':
+                        default:
+                            return this.wizardState.wizardSteps;
+                    }
+                },
             enumerable: true,
             configurable: true
         });
@@ -1957,8 +1968,8 @@
              *
              * @return {?} The number of wizard steps to be displayed
              */ function () {
-                return this.wizardState.wizardSteps.length;
-            },
+                    return this.wizardState.wizardSteps.length;
+                },
             enumerable: true,
             configurable: true
         });
@@ -2102,12 +2113,14 @@
                     this.navigationMode.isNavigable(this.wizardState.getIndexOfStep(wizardStep));
             };
         WizardNavigationBarComponent.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'aw-wizard-navigation-bar',
-                        template: "<ul class=\"steps-indicator steps-{{numberOfWizardSteps}}\">\n  <li *ngFor=\"let step of wizardSteps\"\n      [ngClass]=\"{\n        default: isDefault(step),\n        current: isCurrent(step),\n        done: isDone(step),\n        editing: isEditing(step),\n        optional: isOptional(step),\n        navigable: isNavigable(step)\n  }\">\n    <a [awGoToStep]=\"step\">\n      <div class=\"label\">\n        <ng-container *ngIf=\"step.stepTitleTemplate\" [ngTemplateOutlet]=\"step.stepTitleTemplate.templateRef\"></ng-container>\n        <ng-container *ngIf=\"!step.stepTitleTemplate\">{{step.stepTitle}}</ng-container>\n      </div>\n      <div class=\"step-indicator\" [ngStyle]=\"{ 'font-family': step.stepSymbolTemplate ? '' : step.navigationSymbol.fontFamily }\">\n        <ng-container *ngIf=\"step.stepSymbolTemplate\" [ngTemplateOutlet]=\"step.stepSymbolTemplate.templateRef\"></ng-container>\n        <ng-container *ngIf=\"!step.stepSymbolTemplate\">{{step.navigationSymbol.symbol}}</ng-container>\n      </div>\n    </a>\n  </li>\n</ul>\n",
-                        encapsulation: core.ViewEncapsulation.None,
-                        styles: ["aw-wizard-navigation-bar.horizontal.small ul.steps-indicator{padding:24px 0 10px}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;height:1px;width:calc(100% - 14px);top:-7px;left:calc(50% + 14px / 2)}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li .step-indicator{position:absolute;top:-14px;left:calc(50% - 14px / 2);width:14px;height:14px;text-align:center;vertical-align:middle;line-height:14px;transition:.25s;border-radius:100%;background-color:#e6e6e6}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.current .step-indicator{background-color:#01a9f4}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.editing .step-indicator,aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.optional .step-indicator{background-color:#e6e6e6}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.current a:hover .step-indicator{background-color:#0197db}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.editing a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.optional a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.default a:hover .step-indicator{background-color:#01a9f4}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator{padding:60px 0 10px}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;height:1px;width:calc(100% - 50px);top:-25px;left:calc(50% + 50px / 2)}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li .step-indicator{position:absolute;top:-50px;left:calc(50% - 50px / 2);width:50px;height:50px;text-align:center;vertical-align:middle;line-height:50px;transition:.25s;border-radius:100%;background-color:#e6e6e6}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.current .step-indicator{background-color:#01a9f4}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.editing .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.optional .step-indicator{background-color:#e6e6e6}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.current a:hover .step-indicator{background-color:#0197db}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.editing a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.optional a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.default a:hover .step-indicator{background-color:#01a9f4}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator{padding:60px 0 10px}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;height:1px;width:calc(100% - 50px);top:-25px;left:calc(50% + 50px / 2)}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li .step-indicator{position:absolute;top:-50px;left:calc(50% - 50px / 2);width:50px;height:50px;text-align:center;vertical-align:middle;line-height:46px;transition:.25s;border-radius:100%;border:2px solid #e6e6e6}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li a:hover .step-indicator{border-color:#cdcdcd}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.current .step-indicator{border:2px solid #01a9f4}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.editing .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.optional .step-indicator{border:2px solid #e6e6e6}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.current a:hover .step-indicator{border-color:#0186c1}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.editing a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.optional a:hover .step-indicator{border-color:#cdcdcd}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.default a:hover .step-indicator{border-color:#01a9f4}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator{padding:60px 0 10px}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;height:1px;width:calc(100% - 50px);top:-25px;left:calc(50% + 50px / 2)}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li .step-indicator{position:absolute;top:-50px;left:calc(50% - 50px / 2);width:50px;height:50px;text-align:center;vertical-align:middle;line-height:50px;transition:.25s;border-radius:100%;background-color:#e6e6e6;color:#000}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.current .step-indicator{background-color:#01a9f4;color:#000}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.editing .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.optional .step-indicator{background-color:#e6e6e6;color:#000}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.current a:hover .step-indicator{background-color:#0197db}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.editing a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.optional a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.default a:hover .step-indicator{background-color:#01a9f4}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator{padding:60px 0 10px}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;height:1px;width:calc(100% - 50px);top:-25px;left:calc(50% + 50px / 2)}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li .step-indicator{position:absolute;top:-50px;left:calc(50% - 50px / 2);width:50px;height:50px;text-align:center;vertical-align:middle;line-height:46px;transition:.25s;border-radius:100%;color:#e6e6e6;border:2px solid #e6e6e6}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li a:hover .step-indicator{border-color:#cdcdcd;color:#cdcdcd}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.current .step-indicator{color:#01a9f4;border:2px solid #01a9f4}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.editing .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.optional .step-indicator{color:#e6e6e6;border:2px solid #e6e6e6}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.current a:hover .step-indicator{border-color:#0186c1;color:#0186c1}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.editing a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.optional a:hover .step-indicator{border-color:#cdcdcd;color:#cdcdcd}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.default a:hover .step-indicator{border-color:#01a9f4;color:#01a9f4}aw-wizard-navigation-bar.horizontal ul.steps-indicator{display:flex;flex-direction:row;justify-content:center;margin:0;width:100%;list-style:none}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-2:before{left:25%;right:25%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-2 li{width:50%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-3:before{left:16.66666667%;right:16.66666667%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-3 li{width:33.33333333%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-4:before{left:12.5%;right:12.5%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-4 li{width:25%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-5:before{left:10%;right:10%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-5 li{width:20%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-6:before{left:8.33333333%;right:8.33333333%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-6 li{width:16.66666667%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-7:before{left:7.14285714%;right:7.14285714%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-7 li{width:14.28571429%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-8:before{left:6.25%;right:6.25%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-8 li{width:12.5%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-9:before{left:5.55555556%;right:5.55555556%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-9 li{width:11.11111111%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-10:before{left:5%;right:5%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-10 li{width:10%}aw-wizard-navigation-bar.horizontal ul.steps-indicator *{box-sizing:border-box}aw-wizard-navigation-bar.horizontal ul.steps-indicator li{position:relative;margin:0;padding:0;pointer-events:none;text-align:center}aw-wizard-navigation-bar.horizontal ul.steps-indicator li a{cursor:pointer}aw-wizard-navigation-bar.horizontal ul.steps-indicator li a .label{display:inline-block;padding-top:10px;color:#01a9f4;line-height:14px;font-size:10px;text-decoration:none;text-transform:uppercase;text-align:center;font-weight:400;transition:.25s}aw-wizard-navigation-bar.horizontal ul.steps-indicator li a:hover .label{color:#01638e}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.default a{cursor:auto}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.default a .label{color:#9e9e9e}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.done a{cursor:auto}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.done a .label{color:#9e9e9e}aw-wizard-navigation-bar.horizontal ul.steps-indicator aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.editing .step-indicator{border:2px solid #01a9f4}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.done a div.label{color:#01a9f4}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.done a div.step-indicator{border:2px solid #01a9f4}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.editing a div.label{color:#01a9f4}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.editing a div.step-indicator{border:2px solid #01a9f4!important}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.done.navigable a div.label{color:#9e9e9e}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.done.navigable a div.step-indicator{border:2px solid #9e9e9e}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.navigable{pointer-events:auto}", "aw-wizard-navigation-bar.vertical{max-width:280px;width:20%;height:100%;position:-webkit-sticky;position:sticky;top:0}aw-wizard-navigation-bar.vertical.small ul.steps-indicator{padding:5px 5px 5px 19px}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;left:-7px;top:14px;height:calc(100% - 14px);width:1px}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li .step-indicator{position:absolute;top:0;left:-14px;width:14px;height:14px;text-align:center;vertical-align:middle;line-height:14px;transition:.25s;border-radius:100%;background-color:#e6e6e6}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li div{min-height:14px}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.current .step-indicator{background-color:#01a9f4}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.optional .step-indicator{background-color:#e6e6e6}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.editing .step-indicator{background-color:#9e9e9e}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.current a:hover .step-indicator{background-color:#0197db}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.optional a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.editing a:hover .step-indicator{background-color:#919191}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.default a:hover .step-indicator{background-color:#01a9f4}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator{padding:5px 5px 5px 55px}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;left:-25px;top:50px;height:calc(100% - 50px);width:1px}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li .step-indicator{position:absolute;top:0;left:-50px;width:50px;height:50px;text-align:center;vertical-align:middle;line-height:50px;transition:.25s;border-radius:100%;background-color:#e6e6e6}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li div{min-height:50px}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.current .step-indicator{background-color:#01a9f4}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.optional .step-indicator{background-color:#e6e6e6}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.editing .step-indicator{background-color:#9e9e9e}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.current a:hover .step-indicator{background-color:#0197db}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.optional a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.editing a:hover .step-indicator{background-color:#919191}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.default a:hover .step-indicator{background-color:#01a9f4}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator{padding:5px 5px 5px 55px}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;left:-25px;top:50px;height:calc(100% - 50px);width:1px}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li .step-indicator{position:absolute;top:0;left:-50px;width:50px;height:50px;text-align:center;vertical-align:middle;line-height:46px;transition:.25s;border-radius:100%;border:2px solid #e6e6e6}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li a:hover .step-indicator{border-color:#cdcdcd}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li div{min-height:54px}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.current .step-indicator{border:2px solid #01a9f4}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.optional .step-indicator{border:2px solid #e6e6e6}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.editing .step-indicator{border:2px solid #9e9e9e}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.current a:hover .step-indicator{border-color:#0186c1}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.optional a:hover .step-indicator{border-color:#cdcdcd}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.editing a:hover .step-indicator{border-color:#858585}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.default a:hover .step-indicator{border-color:#01a9f4}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator{padding:5px 5px 5px 55px}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;left:-25px;top:50px;height:calc(100% - 50px);width:1px}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li .step-indicator{position:absolute;top:0;left:-50px;width:50px;height:50px;text-align:center;vertical-align:middle;line-height:50px;transition:.25s;border-radius:100%;background-color:#e6e6e6;color:#000}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li div{min-height:50px}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.current .step-indicator{background-color:#01a9f4;color:#000}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.optional .step-indicator{background-color:#e6e6e6;color:#000}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.editing .step-indicator{background-color:#9e9e9e;color:#000}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.current a:hover .step-indicator{background-color:#0197db}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.optional a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.editing a:hover .step-indicator{background-color:#919191}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.default a:hover .step-indicator{background-color:#01a9f4}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator{padding:5px 5px 5px 55px}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;left:-25px;top:50px;height:calc(100% - 50px);width:1px}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li .step-indicator{position:absolute;top:0;left:-50px;width:50px;height:50px;text-align:center;vertical-align:middle;line-height:46px;transition:.25s;border-radius:100%;color:#e6e6e6;border:2px solid #e6e6e6}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li a:hover .step-indicator{border-color:#cdcdcd;color:#cdcdcd}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li div{min-height:54px}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.current .step-indicator{color:#01a9f4;border:2px solid #01a9f4}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.optional .step-indicator{color:#e6e6e6;border:2px solid #e6e6e6}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.editing .step-indicator{color:#9e9e9e;border:2px solid #9e9e9e}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.current a:hover .step-indicator{border-color:#0186c1;color:#0186c1}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.optional a:hover .step-indicator{border-color:#cdcdcd;color:#cdcdcd}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.editing a:hover .step-indicator{border-color:#858585;color:#858585}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.default a:hover .step-indicator{border-color:#01a9f4;color:#01a9f4}aw-wizard-navigation-bar.vertical ul.steps-indicator{display:flex;flex-direction:column;justify-content:center;list-style:none;margin:auto}aw-wizard-navigation-bar.vertical ul.steps-indicator *{box-sizing:border-box}aw-wizard-navigation-bar.vertical ul.steps-indicator li{position:relative;pointer-events:none}aw-wizard-navigation-bar.vertical ul.steps-indicator li:not(:last-child){margin-bottom:0;padding-bottom:10px}aw-wizard-navigation-bar.vertical ul.steps-indicator li a{cursor:pointer}aw-wizard-navigation-bar.vertical ul.steps-indicator li a .label{margin-left:15px;color:#01a9f4;line-height:14px;font-size:14px;text-decoration:none;text-transform:uppercase;text-align:left;font-weight:700;transition:.25s}aw-wizard-navigation-bar.vertical ul.steps-indicator li a:hover .label{color:#01638e}aw-wizard-navigation-bar.vertical ul.steps-indicator li.default a{cursor:auto}aw-wizard-navigation-bar.vertical ul.steps-indicator li.default a .label{color:#01a9f4}aw-wizard-navigation-bar.vertical ul.steps-indicator li.navigable{pointer-events:auto}"]
-                    }] }
+            {
+                type: core.Component, args: [{
+                    selector: 'aw-wizard-navigation-bar',
+                    template: "<ul class=\"steps-indicator steps-{{numberOfWizardSteps}}\">\n  <li *ngFor=\"let step of wizardSteps\"\n      [ngClass]=\"{\n        default: isDefault(step),\n        current: isCurrent(step),\n        done: isDone(step),\n        editing: isEditing(step),\n        optional: isOptional(step),\n        navigable: isNavigable(step)\n  }\">\n    <a [awGoToStep]=\"step\">\n      <div class=\"label\">\n        <ng-container *ngIf=\"step.stepTitleTemplate\" [ngTemplateOutlet]=\"step.stepTitleTemplate.templateRef\"></ng-container>\n        <ng-container *ngIf=\"!step.stepTitleTemplate\">{{step.stepTitle}}</ng-container>\n      </div>\n      <div class=\"step-indicator\" [ngStyle]=\"{ 'font-family': step.stepSymbolTemplate ? '' : step.navigationSymbol.fontFamily }\">\n        <ng-container *ngIf=\"step.stepSymbolTemplate\" [ngTemplateOutlet]=\"step.stepSymbolTemplate.templateRef\"></ng-container>\n        <ng-container *ngIf=\"!step.stepSymbolTemplate\">{{step.navigationSymbol.symbol}}</ng-container>\n      </div>\n    </a>\n  </li>\n</ul>\n",
+                    encapsulation: core.ViewEncapsulation.None,
+                    styles: ["aw-wizard-navigation-bar.horizontal.small ul.steps-indicator{padding:24px 0 10px}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;height:1px;width:calc(100% - 14px);top:-7px;left:calc(50% + 14px / 2)}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li .step-indicator{position:absolute;top:-14px;left:calc(50% - 14px / 2);width:14px;height:14px;text-align:center;vertical-align:middle;line-height:14px;transition:.25s;border-radius:100%;background-color:#e6e6e6}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.current .step-indicator{background-color:#C4DDD6}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.editing .step-indicator,aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.optional .step-indicator{background-color:#e6e6e6}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.current a:hover .step-indicator{background-color:#81B8B1}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.editing a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.optional a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.default a:hover .step-indicator{background-color:#C4DDD6}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator{padding:60px 0 10px}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;height:1px;width:calc(100% - 50px);top:-25px;left:calc(50% + 50px / 2)}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li .step-indicator{position:absolute;top:-50px;left:calc(50% - 50px / 2);width:50px;height:50px;text-align:center;vertical-align:middle;line-height:50px;transition:.25s;border-radius:100%;background-color:#e6e6e6}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.current .step-indicator{background-color:#C4DDD6}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.editing .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.optional .step-indicator{background-color:#e6e6e6}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.current a:hover .step-indicator{background-color:#81B8B1}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.editing a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.optional a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.default a:hover .step-indicator{background-color:#C4DDD6}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator{padding:60px 0 10px}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;height:1px;width:calc(100% - 50px);top:-25px;left:calc(50% + 50px / 2)}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li .step-indicator{position:absolute;top:-50px;left:calc(50% - 50px / 2);width:50px;height:50px;text-align:center;vertical-align:middle;line-height:46px;transition:.25s;border-radius:100%;border:2px solid #e6e6e6}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li a:hover .step-indicator{border-color:#cdcdcd}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.current .step-indicator{border:2px solid #C4DDD6}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.editing .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.optional .step-indicator{border:2px solid #e6e6e6}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.current a:hover .step-indicator{border-color:#CFB2AB}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.editing a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.optional a:hover .step-indicator{border-color:#cdcdcd}aw-wizard-navigation-bar.horizontal.large-empty ul.steps-indicator li.default a:hover .step-indicator{border-color:#C4DDD6}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator{padding:60px 0 10px}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;height:1px;width:calc(100% - 50px);top:-25px;left:calc(50% + 50px / 2)}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li .step-indicator{position:absolute;top:-50px;left:calc(50% - 50px / 2);width:50px;height:50px;text-align:center;vertical-align:middle;line-height:50px;transition:.25s;border-radius:100%;background-color:#e6e6e6;color:#000}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.current .step-indicator{background-color:#C4DDD6;color:#000}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.editing .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.optional .step-indicator{background-color:#e6e6e6;color:#000}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.current a:hover .step-indicator{background-color:#81B8B1}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.editing a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.optional a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.horizontal.large-filled-symbols ul.steps-indicator li.default a:hover .step-indicator{background-color:#C4DDD6}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator{padding:60px 0 10px}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;height:1px;width:calc(100% - 50px);top:-25px;left:calc(50% + 50px / 2)}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li .step-indicator{position:absolute;top:-50px;left:calc(50% - 50px / 2);width:50px;height:50px;text-align:center;vertical-align:middle;line-height:46px;transition:.25s;border-radius:100%;color:#e6e6e6;border:2px solid #e6e6e6}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li a:hover .step-indicator{border-color:#cdcdcd;color:#cdcdcd}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.current .step-indicator{color:#C4DDD6;border:2px solid #C4DDD6}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.editing .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.optional .step-indicator{color:#e6e6e6;border:2px solid #e6e6e6}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.current a:hover .step-indicator{border-color:#CFB2AB;color:#CFB2AB}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.editing a:hover .step-indicator,aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.optional a:hover .step-indicator{border-color:#cdcdcd;color:#cdcdcd}aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.default a:hover .step-indicator{border-color:#C4DDD6;color:#C4DDD6}aw-wizard-navigation-bar.horizontal ul.steps-indicator{display:flex;flex-direction:row;justify-content:center;margin:0;width:100%;list-style:none}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-2:before{left:25%;right:25%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-2 li{width:50%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-3:before{left:16.66666667%;right:16.66666667%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-3 li{width:33.33333333%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-4:before{left:12.5%;right:12.5%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-4 li{width:25%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-5:before{left:10%;right:10%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-5 li{width:20%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-6:before{left:8.33333333%;right:8.33333333%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-6 li{width:16.66666667%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-7:before{left:7.14285714%;right:7.14285714%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-7 li{width:14.28571429%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-8:before{left:6.25%;right:6.25%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-8 li{width:12.5%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-9:before{left:5.55555556%;right:5.55555556%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-9 li{width:11.11111111%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-10:before{left:5%;right:5%}aw-wizard-navigation-bar.horizontal ul.steps-indicator.steps-10 li{width:10%}aw-wizard-navigation-bar.horizontal ul.steps-indicator *{box-sizing:border-box}aw-wizard-navigation-bar.horizontal ul.steps-indicator li{position:relative;margin:0;padding:0;pointer-events:none;text-align:center}aw-wizard-navigation-bar.horizontal ul.steps-indicator li a{cursor:pointer}aw-wizard-navigation-bar.horizontal ul.steps-indicator li a .label{display:inline-block;padding-top:10px;color:#C4DDD6;line-height:14px;font-size:10px;text-decoration:none;text-transform:uppercase;text-align:center;font-weight:400;transition:.25s}aw-wizard-navigation-bar.horizontal ul.steps-indicator li a:hover .label{color:#01638e}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.default a{cursor:auto}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.default a .label{color:#9e9e9e}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.done a{cursor:auto}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.done a .label{color:#9e9e9e}aw-wizard-navigation-bar.horizontal ul.steps-indicator aw-wizard-navigation-bar.horizontal.large-empty-symbols ul.steps-indicator li.editing .step-indicator{border:2px solid #C4DDD6}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.done a div.label{color:#C4DDD6}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.done a div.step-indicator{border:2px solid #C4DDD6}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.editing a div.label{color:#C4DDD6}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.editing a div.step-indicator{border:2px solid #C4DDD6!important}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.done.navigable a div.label{color:#9e9e9e}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.done.navigable a div.step-indicator{border:2px solid #9e9e9e}aw-wizard-navigation-bar.horizontal ul.steps-indicator li.navigable{pointer-events:auto}", "aw-wizard-navigation-bar.vertical{max-width:280px;width:20%;height:100%;position:-webkit-sticky;position:sticky;top:0}aw-wizard-navigation-bar.vertical.small ul.steps-indicator{padding:5px 5px 5px 19px}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;left:-7px;top:14px;height:calc(100% - 14px);width:1px}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li .step-indicator{position:absolute;top:0;left:-14px;width:14px;height:14px;text-align:center;vertical-align:middle;line-height:14px;transition:.25s;border-radius:100%;background-color:#e6e6e6}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li div{min-height:14px}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.current .step-indicator{background-color:#C4DDD6}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.optional .step-indicator{background-color:#e6e6e6}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.editing .step-indicator{background-color:#9e9e9e}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.current a:hover .step-indicator{background-color:#81B8B1}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.optional a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.editing a:hover .step-indicator{background-color:#919191}aw-wizard-navigation-bar.vertical.small ul.steps-indicator li.default a:hover .step-indicator{background-color:#C4DDD6}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator{padding:5px 5px 5px 55px}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;left:-25px;top:50px;height:calc(100% - 50px);width:1px}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li .step-indicator{position:absolute;top:0;left:-50px;width:50px;height:50px;text-align:center;vertical-align:middle;line-height:50px;transition:.25s;border-radius:100%;background-color:#e6e6e6}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li div{min-height:50px}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.current .step-indicator{background-color:#C4DDD6}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.optional .step-indicator{background-color:#e6e6e6}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.editing .step-indicator{background-color:#9e9e9e}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.current a:hover .step-indicator{background-color:#81B8B1}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.optional a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.editing a:hover .step-indicator{background-color:#919191}aw-wizard-navigation-bar.vertical.large-filled ul.steps-indicator li.default a:hover .step-indicator{background-color:#C4DDD6}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator{padding:5px 5px 5px 55px}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;left:-25px;top:50px;height:calc(100% - 50px);width:1px}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li .step-indicator{position:absolute;top:0;left:-50px;width:50px;height:50px;text-align:center;vertical-align:middle;line-height:46px;transition:.25s;border-radius:100%;border:2px solid #e6e6e6}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li a:hover .step-indicator{border-color:#cdcdcd}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li div{min-height:54px}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.current .step-indicator{border:2px solid #C4DDD6}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.optional .step-indicator{border:2px solid #e6e6e6}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.editing .step-indicator{border:2px solid #9e9e9e}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.current a:hover .step-indicator{border-color:#CFB2AB}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.optional a:hover .step-indicator{border-color:#cdcdcd}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.editing a:hover .step-indicator{border-color:#858585}aw-wizard-navigation-bar.vertical.large-empty ul.steps-indicator li.default a:hover .step-indicator{border-color:#C4DDD6}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator{padding:5px 5px 5px 55px}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;left:-25px;top:50px;height:calc(100% - 50px);width:1px}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li .step-indicator{position:absolute;top:0;left:-50px;width:50px;height:50px;text-align:center;vertical-align:middle;line-height:50px;transition:.25s;border-radius:100%;background-color:#e6e6e6;color:#000}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li div{min-height:50px}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.current .step-indicator{background-color:#C4DDD6;color:#000}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.optional .step-indicator{background-color:#e6e6e6;color:#000}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.editing .step-indicator{background-color:#9e9e9e;color:#000}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.current a:hover .step-indicator{background-color:#81B8B1}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.optional a:hover .step-indicator{background-color:#d9d9d9}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.editing a:hover .step-indicator{background-color:#919191}aw-wizard-navigation-bar.vertical.large-filled-symbols ul.steps-indicator li.default a:hover .step-indicator{background-color:#C4DDD6}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator{padding:5px 5px 5px 55px}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li:not(:last-child):before{background-color:#e6e6e6;content:'';position:absolute;left:-25px;top:50px;height:calc(100% - 50px);width:1px}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li .step-indicator{position:absolute;top:0;left:-50px;width:50px;height:50px;text-align:center;vertical-align:middle;line-height:46px;transition:.25s;border-radius:100%;color:#e6e6e6;border:2px solid #e6e6e6}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li a:hover .step-indicator{border-color:#cdcdcd;color:#cdcdcd}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li div{min-height:54px}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.current .step-indicator{color:#C4DDD6;border:2px solid #C4DDD6}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.done .step-indicator,aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.optional .step-indicator{color:#e6e6e6;border:2px solid #e6e6e6}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.editing .step-indicator{color:#9e9e9e;border:2px solid #9e9e9e}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.current a:hover .step-indicator{border-color:#CFB2AB;color:#CFB2AB}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.done a:hover .step-indicator,aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.optional a:hover .step-indicator{border-color:#cdcdcd;color:#cdcdcd}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.editing a:hover .step-indicator{border-color:#858585;color:#858585}aw-wizard-navigation-bar.vertical.large-empty-symbols ul.steps-indicator li.default a:hover .step-indicator{border-color:#C4DDD6;color:#C4DDD6}aw-wizard-navigation-bar.vertical ul.steps-indicator{display:flex;flex-direction:column;justify-content:center;list-style:none;margin:auto}aw-wizard-navigation-bar.vertical ul.steps-indicator *{box-sizing:border-box}aw-wizard-navigation-bar.vertical ul.steps-indicator li{position:relative;pointer-events:none}aw-wizard-navigation-bar.vertical ul.steps-indicator li:not(:last-child){margin-bottom:0;padding-bottom:10px}aw-wizard-navigation-bar.vertical ul.steps-indicator li a{cursor:pointer}aw-wizard-navigation-bar.vertical ul.steps-indicator li a .label{margin-left:15px;color:#C4DDD6;line-height:14px;font-size:14px;text-decoration:none;text-transform:uppercase;text-align:left;font-weight:700;transition:.25s}aw-wizard-navigation-bar.vertical ul.steps-indicator li a:hover .label{color:#01638e}aw-wizard-navigation-bar.vertical ul.steps-indicator li.default a{cursor:auto}aw-wizard-navigation-bar.vertical ul.steps-indicator li.default a .label{color:#C4DDD6}aw-wizard-navigation-bar.vertical ul.steps-indicator li.navigable{pointer-events:auto}"]
+                }]
+            }
         ];
         WizardNavigationBarComponent.ctorParameters = function () {
             return [
@@ -2238,15 +2251,17 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         WizardStepComponent.decorators = [
-            { type: core.Component, args: [{
-                        selector: 'aw-wizard-step',
-                        template: "<ng-content></ng-content>\n",
-                        encapsulation: core.ViewEncapsulation.None,
-                        providers: [
-                            { provide: WizardStep, useExisting: core.forwardRef(function () { return WizardStepComponent; }) }
-                        ],
-                        styles: ["aw-wizard-step{height:auto;width:100%}"]
-                    }] }
+            {
+                type: core.Component, args: [{
+                    selector: 'aw-wizard-step',
+                    template: "<ng-content></ng-content>\n",
+                    encapsulation: core.ViewEncapsulation.None,
+                    providers: [
+                        { provide: WizardStep, useExisting: core.forwardRef(function () { return WizardStepComponent; }) }
+                    ],
+                    styles: ["aw-wizard-step{height:auto;width:100%}"]
+                }]
+            }
         ];
         return WizardStepComponent;
     }(WizardStep));
@@ -2311,9 +2326,11 @@
                 this.completionStep.stepExit = this.stepExit;
             };
         EnableBackLinksDirective.decorators = [
-            { type: core.Directive, args: [{
-                        selector: '[awEnableBackLinks]'
-                    },] }
+            {
+                type: core.Directive, args: [{
+                    selector: '[awEnableBackLinks]'
+                },]
+            }
         ];
         EnableBackLinksDirective.ctorParameters = function () {
             return [
@@ -2431,8 +2448,8 @@
              * A convenience field for `preFinalize`
              * @return {?}
              */ function () {
-                return this.preFinalize;
-            },
+                    return this.preFinalize;
+                },
             /**
              * A convenience name for `preFinalize`
              *
@@ -2444,9 +2461,9 @@
              * @param {?} emitter The [[EventEmitter]] to be set
              * @return {?}
              */ function (emitter) {
-                /* istanbul ignore next */
-                this.preFinalize = emitter;
-            },
+                    /* istanbul ignore next */
+                    this.preFinalize = emitter;
+                },
             enumerable: true,
             configurable: true
         });
@@ -2458,8 +2475,8 @@
              * The navigation mode
              * @return {?}
              */ function () {
-                return this.wizardState.navigationMode;
-            },
+                    return this.wizardState.navigationMode;
+                },
             enumerable: true,
             configurable: true
         });
@@ -2476,25 +2493,25 @@
              * @throws If `targetStep` is of an unknown type an `Error` is thrown
              * @return {?} The index of the destination step
              */ function () {
-                /** @type {?} */
-                var destinationStep;
-                if (isStepIndex(this.targetStep)) {
-                    destinationStep = this.targetStep.stepIndex;
-                }
-                else if (isStepId(this.targetStep)) {
-                    destinationStep = this.wizardState.getIndexOfStepWithId(this.targetStep.stepId);
-                }
-                else if (isStepOffset(this.targetStep) && this.wizardStep !== null) {
-                    destinationStep = this.wizardState.getIndexOfStep(this.wizardStep) + this.targetStep.stepOffset;
-                }
-                else if (this.targetStep instanceof WizardStep) {
-                    destinationStep = this.wizardState.getIndexOfStep(this.targetStep);
-                }
-                else {
-                    throw new Error("Input 'targetStep' is neither a WizardStep, StepOffset, StepIndex or StepId");
-                }
-                return destinationStep;
-            },
+                    /** @type {?} */
+                    var destinationStep;
+                    if (isStepIndex(this.targetStep)) {
+                        destinationStep = this.targetStep.stepIndex;
+                    }
+                    else if (isStepId(this.targetStep)) {
+                        destinationStep = this.wizardState.getIndexOfStepWithId(this.targetStep.stepId);
+                    }
+                    else if (isStepOffset(this.targetStep) && this.wizardStep !== null) {
+                        destinationStep = this.wizardState.getIndexOfStep(this.wizardStep) + this.targetStep.stepOffset;
+                    }
+                    else if (this.targetStep instanceof WizardStep) {
+                        destinationStep = this.wizardState.getIndexOfStep(this.targetStep);
+                    }
+                    else {
+                        throw new Error("Input 'targetStep' is neither a WizardStep, StepOffset, StepIndex or StepId");
+                    }
+                    return destinationStep;
+                },
             enumerable: true,
             configurable: true
         });
@@ -2518,9 +2535,11 @@
                 this.navigationMode.goToStep(this.destinationStep, this.preFinalize, this.postFinalize);
             };
         GoToStepDirective.decorators = [
-            { type: core.Directive, args: [{
-                        selector: '[awGoToStep]'
-                    },] }
+            {
+                type: core.Directive, args: [{
+                    selector: '[awGoToStep]'
+                },]
+            }
         ];
         GoToStepDirective.ctorParameters = function () {
             return [
@@ -2578,8 +2597,8 @@
              * A convenience field for `preFinalize`
              * @return {?}
              */ function () {
-                return this.preFinalize;
-            },
+                    return this.preFinalize;
+                },
             /**
              * A convenience name for `preFinalize`
              *
@@ -2591,9 +2610,9 @@
              * @param {?} emitter The [[EventEmitter]] to be set
              * @return {?}
              */ function (emitter) {
-                /* istanbul ignore next */
-                this.preFinalize = emitter;
-            },
+                    /* istanbul ignore next */
+                    this.preFinalize = emitter;
+                },
             enumerable: true,
             configurable: true
         });
@@ -2605,8 +2624,8 @@
              * The navigation mode
              * @return {?}
              */ function () {
-                return this.wizardState.navigationMode;
-            },
+                    return this.wizardState.navigationMode;
+                },
             enumerable: true,
             configurable: true
         });
@@ -2630,9 +2649,11 @@
                 this.navigationMode.goToNextStep(this.preFinalize, this.postFinalize);
             };
         NextStepDirective.decorators = [
-            { type: core.Directive, args: [{
-                        selector: '[awNextStep]'
-                    },] }
+            {
+                type: core.Directive, args: [{
+                    selector: '[awNextStep]'
+                },]
+            }
         ];
         NextStepDirective.ctorParameters = function () {
             return [
@@ -2698,9 +2719,11 @@
                 this.wizardStep.optional = true;
             };
         OptionalStepDirective.decorators = [
-            { type: core.Directive, args: [{
-                        selector: '[awOptionalStep]'
-                    },] }
+            {
+                type: core.Directive, args: [{
+                    selector: '[awOptionalStep]'
+                },]
+            }
         ];
         OptionalStepDirective.ctorParameters = function () {
             return [
@@ -2751,8 +2774,8 @@
              * A convenience field for `preFinalize`
              * @return {?}
              */ function () {
-                return this.preFinalize;
-            },
+                    return this.preFinalize;
+                },
             /**
              * A convenience field for `preFinalize`
              *
@@ -2764,9 +2787,9 @@
              * @param {?} emitter The [[EventEmitter]] to be set
              * @return {?}
              */ function (emitter) {
-                /* istanbul ignore next */
-                this.preFinalize = emitter;
-            },
+                    /* istanbul ignore next */
+                    this.preFinalize = emitter;
+                },
             enumerable: true,
             configurable: true
         });
@@ -2778,8 +2801,8 @@
              * The navigation mode
              * @return {?}
              */ function () {
-                return this.wizardState.navigationMode;
-            },
+                    return this.wizardState.navigationMode;
+                },
             enumerable: true,
             configurable: true
         });
@@ -2803,9 +2826,11 @@
                 this.navigationMode.goToPreviousStep(this.preFinalize, this.postFinalize);
             };
         PreviousStepDirective.decorators = [
-            { type: core.Directive, args: [{
-                        selector: '[awPreviousStep]'
-                    },] }
+            {
+                type: core.Directive, args: [{
+                    selector: '[awPreviousStep]'
+                },]
+            }
         ];
         PreviousStepDirective.ctorParameters = function () {
             return [
@@ -2858,8 +2883,8 @@
              * The navigation mode
              * @return {?}
              */ function () {
-                return this.wizardState.navigationMode;
-            },
+                    return this.wizardState.navigationMode;
+                },
             enumerable: true,
             configurable: true
         });
@@ -2883,9 +2908,11 @@
                 this.navigationMode.reset();
             };
         ResetWizardDirective.decorators = [
-            { type: core.Directive, args: [{
-                        selector: '[awResetWizard]'
-                    },] }
+            {
+                type: core.Directive, args: [{
+                    selector: '[awResetWizard]'
+                },]
+            }
         ];
         ResetWizardDirective.ctorParameters = function () {
             return [
@@ -2940,9 +2967,11 @@
                 this.wizardStep.defaultSelected = true;
             };
         SelectedStepDirective.decorators = [
-            { type: core.Directive, args: [{
-                        selector: '[awSelectedStep]'
-                    },] }
+            {
+                type: core.Directive, args: [{
+                    selector: '[awSelectedStep]'
+                },]
+            }
         ];
         SelectedStepDirective.ctorParameters = function () {
             return [
@@ -3034,13 +3063,15 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         WizardCompletionStepDirective.decorators = [
-            { type: core.Directive, args: [{
-                        selector: '[awWizardCompletionStep]',
-                        providers: [
-                            { provide: WizardStep, useExisting: core.forwardRef(function () { return WizardCompletionStepDirective; }) },
-                            { provide: WizardCompletionStep, useExisting: core.forwardRef(function () { return WizardCompletionStepDirective; }) }
-                        ]
-                    },] }
+            {
+                type: core.Directive, args: [{
+                    selector: '[awWizardCompletionStep]',
+                    providers: [
+                        { provide: WizardStep, useExisting: core.forwardRef(function () { return WizardCompletionStepDirective; }) },
+                        { provide: WizardCompletionStep, useExisting: core.forwardRef(function () { return WizardCompletionStepDirective; }) }
+                    ]
+                },]
+            }
         ];
         return WizardCompletionStepDirective;
     }(WizardCompletionStep));
@@ -3161,12 +3192,14 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         WizardStepDirective.decorators = [
-            { type: core.Directive, args: [{
-                        selector: '[awWizardStep]',
-                        providers: [
-                            { provide: WizardStep, useExisting: core.forwardRef(function () { return WizardStepDirective; }) }
-                        ]
-                    },] }
+            {
+                type: core.Directive, args: [{
+                    selector: '[awWizardStep]',
+                    providers: [
+                        { provide: WizardStep, useExisting: core.forwardRef(function () { return WizardStepDirective; }) }
+                    ]
+                },]
+            }
         ];
         return WizardStepDirective;
     }(WizardStep));
@@ -3216,45 +3249,47 @@
                 return { ngModule: ArchwizardModule, providers: [] };
             };
         ArchwizardModule.decorators = [
-            { type: core.NgModule, args: [{
-                        declarations: [
-                            WizardComponent,
-                            WizardStepComponent,
-                            WizardNavigationBarComponent,
-                            WizardCompletionStepComponent,
-                            GoToStepDirective,
-                            NextStepDirective,
-                            PreviousStepDirective,
-                            OptionalStepDirective,
-                            WizardStepSymbolDirective,
-                            WizardStepTitleDirective,
-                            EnableBackLinksDirective,
-                            WizardStepDirective,
-                            WizardCompletionStepDirective,
-                            SelectedStepDirective,
-                            ResetWizardDirective
-                        ],
-                        imports: [
-                            common.CommonModule
-                        ],
-                        exports: [
-                            WizardComponent,
-                            WizardStepComponent,
-                            WizardNavigationBarComponent,
-                            WizardCompletionStepComponent,
-                            GoToStepDirective,
-                            NextStepDirective,
-                            PreviousStepDirective,
-                            OptionalStepDirective,
-                            WizardStepSymbolDirective,
-                            WizardStepTitleDirective,
-                            EnableBackLinksDirective,
-                            WizardStepDirective,
-                            WizardCompletionStepDirective,
-                            SelectedStepDirective,
-                            ResetWizardDirective
-                        ]
-                    },] }
+            {
+                type: core.NgModule, args: [{
+                    declarations: [
+                        WizardComponent,
+                        WizardStepComponent,
+                        WizardNavigationBarComponent,
+                        WizardCompletionStepComponent,
+                        GoToStepDirective,
+                        NextStepDirective,
+                        PreviousStepDirective,
+                        OptionalStepDirective,
+                        WizardStepSymbolDirective,
+                        WizardStepTitleDirective,
+                        EnableBackLinksDirective,
+                        WizardStepDirective,
+                        WizardCompletionStepDirective,
+                        SelectedStepDirective,
+                        ResetWizardDirective
+                    ],
+                    imports: [
+                        common.CommonModule
+                    ],
+                    exports: [
+                        WizardComponent,
+                        WizardStepComponent,
+                        WizardNavigationBarComponent,
+                        WizardCompletionStepComponent,
+                        GoToStepDirective,
+                        NextStepDirective,
+                        PreviousStepDirective,
+                        OptionalStepDirective,
+                        WizardStepSymbolDirective,
+                        WizardStepTitleDirective,
+                        EnableBackLinksDirective,
+                        WizardStepDirective,
+                        WizardCompletionStepDirective,
+                        SelectedStepDirective,
+                        ResetWizardDirective
+                    ]
+                },]
+            }
         ];
         return ArchwizardModule;
     }());
