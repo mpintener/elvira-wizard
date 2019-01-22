@@ -1357,10 +1357,16 @@ WizardNavigationBarComponent.decorators = [
         navigable: isNavigable(step)
   }">
     <div>
-      <div class="step-indicator" [ngStyle]="{ 'font-family': step.stepSymbolTemplate ? '' : step.navigationSymbol.fontFamily }">
-        <ng-container *ngIf="step.stepSymbolTemplate" [ngTemplateOutlet]="step.stepSymbolTemplate.templateRef"></ng-container>
-        <ng-container *ngIf="!step.stepSymbolTemplate">{{step.navigationSymbol.symbol}}</ng-container>
-      </div>
+      <a [awGoToStep]="step">
+        <div class="label">
+          <ng-container *ngIf="step.stepTitleTemplate" [ngTemplateOutlet]="step.stepTitleTemplate.templateRef"></ng-container>
+          <ng-container *ngIf="!step.stepTitleTemplate">{{step.stepTitle}}</ng-container>
+        </div>
+        <div class="step-indicator" [ngStyle]="{ 'font-family': step.stepSymbolTemplate ? '' : step.navigationSymbol.fontFamily }">
+          <ng-container *ngIf="step.stepSymbolTemplate" [ngTemplateOutlet]="step.stepSymbolTemplate.templateRef"></ng-container>
+          <ng-container *ngIf="!step.stepSymbolTemplate">{{step.navigationSymbol.symbol}}</ng-container>
+        </div>
+      </a>
     </div>
   </li>
 </ul>`,
