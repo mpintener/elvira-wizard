@@ -4,7 +4,7 @@ import { WizardStep } from '../util/wizard-step.interface';
  *
  * ### Syntax
  *
- * With `stepTitle` input:
+ * With `stepTitle` and `navigationSymbol` inputs:
  *
  * ```html
  * <aw-wizard-step [stepTitle]="step title" [navigationSymbol]="{ symbol: 'symbol', fontFamily: 'font-family' }"
@@ -13,7 +13,7 @@ import { WizardStep } from '../util/wizard-step.interface';
  * </aw-wizard-step>
  * ```
  *
- * With `awWizardStepTitle` directive:
+ * With `awWizardStepTitle` and `awWizardStepSymbol` directives:
  *
  * ```html
  * <aw-wizard-step [navigationSymbol]="{ symbol: 'symbol', fontFamily: 'font-family' }"

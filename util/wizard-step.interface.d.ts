@@ -2,6 +2,7 @@ import { MovingDirection } from './moving-direction.enum';
 import { WizardStepTitleDirective } from '../directives/wizard-step-title.directive';
 import { EventEmitter } from '@angular/core';
 import { NavigationSymbol } from './navigation-symbol.interface';
+import { WizardStepSymbolDirective } from '../directives/wizard-step-symbol.directive';
 /**
  * Basic functionality every type of wizard step needs to provide
  *
@@ -15,6 +16,11 @@ export declare abstract class WizardStep {
      */
     stepTitleTemplate: WizardStepTitleDirective;
     /**
+     * A step symbol property that, if defined, overrides `navigationSymbol`.
+     * Allows to display arbitrary content as a step symbol instead of plain text.
+     */
+    stepSymbolTemplate: WizardStepSymbolDirective;
+    /**
      * A step id, unique to the step
      */
     stepId: string;
@@ -25,6 +31,7 @@ export declare abstract class WizardStep {
     stepTitle: string;
     /**
      * A symbol property, which contains an optional symbol for the step inside the navigation bar.
+     * Takes effect when `stepSymbolTemplate` is not defined or null.
      */
     navigationSymbol: NavigationSymbol;
     /**
